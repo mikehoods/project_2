@@ -9,8 +9,15 @@ const Plant = require('../models/plants.js')
 /////////////////Presentational Routes////////////////
 
 ////NEW ROUTE////
+plantController.get('/new', (req, res)=> {
+    res.render('New')
+})
 
 /////INDEX ROUTE////
+plantController.get('/', (req, res)=> {
+    res.render('Index')
+})
+
 
 ////EDIT ROUTE////
 

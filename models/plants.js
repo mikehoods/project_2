@@ -3,8 +3,9 @@ const {Schema, model} = require('mongoose')
 const plantSchema = new Schema({
     itemName: String,
     description: String,
+    img: String,
     qty: Number,
-    tag: [[String]]
+    plantType: String
 }, {timestamps: true}
 )
 
