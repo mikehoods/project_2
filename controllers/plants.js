@@ -6,6 +6,35 @@ const Plant = require('../models/plants.js')
 /// Routes
 ////////////////////
 
+////SEED ROUTE////
+plantController.get('/seed', (req, res)=> {
+    Plant.create([
+        {
+            itemname: "Artichokes",
+            description: "So yummy!",
+            img: "https://imgur.com/4wSfofe.jpg",
+            qty: 3,
+            plantType: "produce"
+        },
+        {
+            itemname: "Calendula",
+            description: "Strawberry blonde heirloom variety!",
+            img: "https://i.imgur.com/qFcXYU3.jpg",
+            qty: 25,
+            plantType: "seed"
+        },
+        {
+            itemname: "Tomatoes",
+            description: "Mix of homegrown, organic goodness.",
+            img: "https://i.imgur.com/O0oR9hT.jpg",
+            qty: 12,
+            plantType: "produce"
+        }
+    ], (error, newPlants)=>{
+        res.redirect('/plants')
+    })
+})
+
 /////////////////Presentational Routes////////////////
 
 ////NEW ROUTE////
@@ -47,20 +76,7 @@ plantController.get('/:id', (req, res)=> {
 
 /////////////////Functional Routes////////////////
 
-////SEED ROUTE////
-plantController.get('/seed', (req, res)=> {
-    Plant.create([
-        {
-            itemname: "Artichokes",
-            description: "So yummy!",
-            img: "https://imgur.com/4wSfofe",
-            qty: 3,
-            plantType: "produce"
-        }
-    ], (error, newPlants)=>{
-        res.redirect('/plants')
-    })
-})
+
 
 ////CREATE ROUTE////
 plantController.post('/', (req, res) => {
