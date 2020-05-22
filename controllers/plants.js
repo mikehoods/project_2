@@ -15,7 +15,19 @@ plantController.get('/new', (req, res)=> {
 
 /////INDEX ROUTE////
 plantController.get('/', (req, res)=> {
-    res.render('Index')
+    const thisRunsNext = (error, allPlants) => {
+        if(error){
+            show(error)
+        } else {
+            const props = {
+                logs: allPlants
+            }
+            res.render('Index', {
+                plants: allPlants,
+            })
+        }
+    }
+    Plant.find({}, thisRunsNext)
 })
 
 
@@ -29,6 +41,13 @@ plantController.get('/:id/edit', (req, res)=> {
 })
 
 ////SHOW ROUTE////
+plantController.get('/:id', (req, res)=> {
+    Plant.findById(req.params.id, (error, foundPlant)=> {
+        res.render('Show', {
+            plant: foundPlant
+        })
+    })
+})
 
 /////////////////Functional Routes////////////////
 

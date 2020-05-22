@@ -14,7 +14,7 @@ class Edit extends Component {
                 Item Name:<input type="text" name="itemName" value={itemName}/>
                 Description:<input type="textarea" name="description" value={description}/>
                 Quantity:<input type="number" name="qty" value={qty}/>
-                Image:<input type="url" name="img" value={img}/>
+                Image:<input type="text" name="img" value={img}/>
                 Plant Type:
                 <input type="radio" id="plantCutting" name="plantType" value="cutting"/>
                 <label for="cutting">Cutting</label><br/>
