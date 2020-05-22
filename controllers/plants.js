@@ -20,12 +20,32 @@ plantController.get('/', (req, res)=> {
 
 
 ////EDIT ROUTE////
+plantController.get('/:id/edit', (req, res)=> {
+    Plant.findById(req.params.id, (error, foundPlant)=> {
+        res.render('Edit', {
+            plant: foundPlant
+        })
+    })
+})
 
 ////SHOW ROUTE////
 
 /////////////////Functional Routes////////////////
 
 ////SEED ROUTE////
+plantController.get('/seed', (req, res)=> {
+    Plant.create([
+        {
+            itemName: "Artichokes",
+            description: "So yummy!",
+            img: "https://imgur.com/4wSfofe",
+            qty: 3,
+            plantType: "produce"
+        }
+    ], (error, newPlants)=>{
+        res.redirect('/plants')
+    })
+})
 
 ////CREATE ROUTE////
 

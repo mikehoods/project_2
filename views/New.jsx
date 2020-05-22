@@ -8,7 +8,7 @@ class New extends Component {
             <Layout>
                 <div>
                     <h1>Add New Item</h1>
-                    <form action="/logs" method="POST">
+                    <form action="/plants" method="POST">
                 Item Name:<input type="text" name="itemName"/>
                 Description:<input type="textarea" name="description"/>
                 Quantity:<input type="number" name="qty"/>
@@ -20,6 +20,10 @@ class New extends Component {
                 <label for="start">Start</label><br/>
                 <input type="radio" id="plantSeed" name="plantType" value="seed"/>
                 <label for="seed">Seed</label>
+                <input type="radio" id="plantProduce" name="plantType" value="produce"/>
+                <label for="seed">Produce</label>
+                <input type="radio" id="plantOther" name="plantType" value="seed"/>
+                <label for="other">Other</label>
                 <input type="submit" value="Add Item" class="btn"/>
             </form>
                 </div>
