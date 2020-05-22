@@ -4,14 +4,14 @@ const Layout = require('./components/Layout.jsx')
 
 class Edit extends Component {
     render() {
-        const { itemName, description, qty, plantType, img} = this.props.plant
+        const { itemname, description, qty, plantType, img} = this.props.plant
         const { plant } = this.props
         return(
             <Layout>
                 <div>
                     <h1>Edit Item</h1>
                     <form action={`/plants/${plant._id}/edit?_method=put`}method="POST">
-                Item Name:<input type="text" name="itemName" value={itemName}/>
+                Item Name:<input type="text" name="itemname" value={itemname}/>
                 Description:<input type="textarea" name="description" value={description}/>
                 Quantity:<input type="number" name="qty" value={qty}/>
                 Image:<input type="text" name="img" value={img}/>

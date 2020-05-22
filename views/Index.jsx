@@ -13,8 +13,8 @@ class Index extends Component {
                     {this.props.plants.map((plant, i) => {
                         return (
                             <div key={i}>
-                                <h2>{plant.itemName}</h2>
-                                <a href={`/plants/${plant._id}`}><img src={plant.img}/></a>
+                                <h2>{plant.itemname}</h2>
+                                <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
                                 <h2>Available:{plant.qty}</h2>
                             </div>
                         )

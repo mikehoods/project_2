@@ -9,7 +9,7 @@ class New extends Component {
                 <div>
                     <h1>Add New Item</h1>
                     <form action="/plants" method="POST">
-                Item Name:<input type="text" name="itemName"/>
+                Item Name:<input type="text" name="itemname"/>
                 Description:<input type="textarea" name="description"/>
                 Quantity:<input type="number" name="qty"/>
                 Image:<input type="url" name="img"/>

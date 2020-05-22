@@ -15,19 +15,15 @@ plantController.get('/new', (req, res)=> {
 
 /////INDEX ROUTE////
 plantController.get('/', (req, res)=> {
-    const thisRunsNext = (error, allPlants) => {
+    Plant.find({}, req.params.id, (error, allPlants) => {
         if(error){
             show(error)
         } else {
-            const props = {
-                logs: allPlants
-            }
             res.render('Index', {
                 plants: allPlants,
             })
         }
-    }
-    Plant.find({}, thisRunsNext)
+})
 })
 
 
@@ -55,7 +51,7 @@ plantController.get('/:id', (req, res)=> {
 plantController.get('/seed', (req, res)=> {
     Plant.create([
         {
-            itemName: "Artichokes",
+            itemname: "Artichokes",
             description: "So yummy!",
             img: "https://imgur.com/4wSfofe",
             qty: 3,
@@ -67,10 +63,29 @@ plantController.get('/seed', (req, res)=> {
 })
 
 ////CREATE ROUTE////
+plantController.post('/', (req, res) => {
+    Plant.create(req.body, (error, createdPlant)=> {
+        if(error){
+            show(error)
+        } else {
+            res.redirect('/plants')
+        }
+    })
+})
 
 ////UPDATE ROUTE////
+plantController.put('/:id/edit', (req, res)=> {
+    Plant.findByIdAndUpdate(req.params.id, req.body, (error, foundPlant)=> {
+        res.redirect('/plants/')
+    })
+})
 
 ////DELETE ROUTE////
+plantController.delete('/:id', (req, res)=> {
+    Plant.findByIdAndDelete(req.params.id, (error, foundPlant)=> {
+        res.redirect('/plants/')
+    })
+})
 
 
 module.exports = plantController

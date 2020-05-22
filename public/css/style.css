@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+}
+.btn {
+    background-color: green;
+    color: whitesmoke;
+}
+img {
+    max-width: 50%;
+}

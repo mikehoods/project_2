@@ -4,14 +4,21 @@ const Layout = require('./components/Layout.jsx')
 
 class Show extends Component {
     render() {
-        const {itemName, qty, description, img} = this.props.plant
+        const { itemname, qty, description, img } = this.props.plant
+        const { plant } = this.props
         return (
             <Layout>
                 <div>
-                    <h1>{itemName}</h1>
+                    <h1>{itemname}</h1>
                     <img src={img}/>
                     <p>{description}</p>
                     <h2>Available: {qty}</h2>
+                    <form action={`/plants/${plant._id}/edit`} method="GET">
+                        <input type="submit" value="Edit" class="btn"/>
+                    </form>
+                    <form action={`/plants/${plant._id}?_method=DELETE`} method="POST">
+                        <input type="submit" value="Delete" class="btn"/>
+                    </form>
                     <a href="/plants/" class="btn">Back To Plants</a>
                 </div>
             </Layout>
