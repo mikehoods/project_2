@@ -11,6 +11,7 @@ body {
 .btn {
     background-color: green;
     color: whitesmoke;
+    margin: .5rem;
 }
 img {
     max-width: 50%;
