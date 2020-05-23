@@ -16,7 +16,8 @@ class SwapIndex extends React.Component {
                             </div>
                         )
                     })}    
-                </div> 
+                </div>
+                <a href="/plants" class="btn">Back To Plants</a>
             </Layout>
         )
     }

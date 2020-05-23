@@ -15,6 +15,7 @@ class NewUser extends React.Component {
                         Location: <input type="text" name="location" class="form-group"/>
                         <br/>
                         <input type="submit" value="Create User" class="btn"/>
+                        <a href="/plants" class="btn">Maybe Later</a>
                     </form>
                 </div>
             </Layout>

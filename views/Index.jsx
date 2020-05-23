@@ -6,15 +6,19 @@ class Index extends Component {
     render() {
         const logout = (
             <div class="navDiv">
-            <h2>Hey there {this.props.username}</h2>
-            <a href="/plants/new" class="btn">Add A Plant</a>
-            <form action="/sessions/?_method=delete" method="post">
-                <input type="submit" value="Logout" class="btn"/>
-            </form>
+                <h2>Hey there {this.props.username}</h2>
+                <a href="/swaps" class="btn">My Swaps</a>
+                <a href="/plants/new" class="btn">Add A Plant</a>
+                <form action="/sessions/?_method=delete" method="post">
+                    <input type="submit" value="Logout" class="btn"/>
+                </form>
             </div>
         )
         const login = (
-            <a href="/sessions/new" class="btn">Login</a>
+            <div>
+                <a href="/sessions/new" class="btn">Login</a>
+                <a href="/users/new" class="btn">Sign Up</a>
+            </div>
         )
         return(
             <Layout>

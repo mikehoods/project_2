@@ -11,6 +11,7 @@ class LoginUser extends React.Component {
                         User Name: <input type="text" name="username" class="form-control"/><br/>
                         Password: <input type="password" name="password" class="form-control"/><br/>
                         <input type="submit" name="" value="Login" class="btn"/>
+                        <a href="/users/new" class="btn">Sign Up</a>
                     </form>
                 </div>
             </Layout>
