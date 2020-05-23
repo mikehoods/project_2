@@ -71,7 +71,7 @@ app.use('/swaps', swapController)
 /////////////////////
 //localhost:3000 
 app.get('/' , (req, res) => {
-  res.send('Hello World!');
+  res.redirect('/plants');
 });
 
 /////////////////////
