@@ -39,7 +39,7 @@ class SwapIndex extends React.Component {
                     {requestedSwaps.map((swap, i) => {
                         return (
                             <div key={i}>
-                                <h2>{swap.title} - sent to {swap.owner}</h2>
+                                <h2><a href={`/swaps/${swap._id}`}>{swap.title} - sent to {swap.owner}</a></h2>
                                 {/* <h3>From: {swap.requestFrom}</h3> */}
                                 <p>{swap.msg}</p>
                             </div>
@@ -49,7 +49,7 @@ class SwapIndex extends React.Component {
                     {ownedSwaps.map((swap, i) => {
                         return (
                             <div key={i}>
-                                <h2>{swap.title}</h2>
+                                <h2><a href={`/swaps/${swap._id}`}>{swap.title}</a></h2>
                                 <h3>From: {swap.requestFrom}</h3>
                                 <p>{swap.msg}</p>
                             </div>

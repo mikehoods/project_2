@@ -27,7 +27,7 @@ swaps.get('/', (req, res)=> {
 ////Swap Show Route////
 swaps.get('/:id', isAuthenticated, (req, res)=> {
     Swap.findById(req.params.id, (error, foundSwap)=> {
-        res.render('/swaps/Show', {
+        res.render('swaps/Show', {
             swap: foundSwap,
             username: req.session.currentUser
         })
