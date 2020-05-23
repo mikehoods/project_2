@@ -5,9 +5,13 @@ const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
-const bcrypt = require('bcrypt')
 require('dotenv').config()
 const plantsController = require('./controllers/plants.js')
+const userController = require('./controllers/users_controller.js')
+const session = require('express-session')
+const User = require('./models/users.js')
+const bcrypt = require('bcrypt')
+
 
 
 const db = mongoose.connection;
@@ -44,6 +48,13 @@ app.use(express.urlencoded({ extended: false }));// extended: false - does not a
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
@@ -51,15 +62,45 @@ app.engine('jsx', require('express-react-views').createEngine())
 /// Controllers
 /////////////////////
 app.use('/plants', plantsController)
+app.use('/users', userController)
 
 /////////////////////
-/// Routes
+/// Route Route
 /////////////////////
 //localhost:3000 
 app.get('/' , (req, res) => {
   res.send('Hello World!');
 });
 
+/////////////////////
+/// Authorization Route
+/////////////////////
+
+app.get('/sessions/new', (req, res)=> {
+  res.render('sessions/New', {currentUser: req.session.currentUser})
+})
+app.post('/sessions', (req, res)=> {
+  User.findOne({ username: req.body.username}, (err, foundUser) => {
+      if (err) {
+          console.log(err)
+          res.send('DB has a problem')
+      } else if (!foundUser) {
+          res.send('<a href="/plants">Sorry, no user found</a>')
+      } else {
+          if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+              req.session.currentUser = foundUser.username
+              res.redirect('/plants')
+          } else {
+              res.send('<a href="/plants">Password does not match</a>')
+          }
+      }
+  })
+})
+app.delete('/sessions', (req,res)=> {
+  req.session.destroy(()=> {
+    res.redirect('/plants')
+  })
+})
 /////////////////////
 /// Listener
 /////////////////////

@@ -2,6 +2,14 @@ const express = require('express')
 const plantController = express.Router()
 const Plant = require('../models/plants.js')
 
+const isAuthenticated = (req, res, next)=> {
+    if (req.session.currentUser) {
+        return next()
+    } else {
+        res.redirect('/sessions/new')
+    }
+}
+
 ////////////////////
 /// Routes
 ////////////////////
@@ -38,26 +46,31 @@ plantController.get('/seed', (req, res)=> {
 /////////////////Presentational Routes////////////////
 
 ////NEW ROUTE////
-plantController.get('/new', (req, res)=> {
+plantController.get('/new', isAuthenticated, (req, res)=> {
     res.render('New')
 })
 
 /////INDEX ROUTE////
 plantController.get('/', (req, res)=> {
-    Plant.find({}, req.params.id, (error, allPlants) => {
+    const thisRunsNext = (error, allPlants) => {
         if(error){
             show(error)
         } else {
+            const props = {
+            logs: allPlants
+            }
             res.render('Index', {
                 plants: allPlants,
+                username: req.session.currentUser
             })
         }
-})
+    }
+    Plant.find({}, thisRunsNext)
 })
 
 
 ////EDIT ROUTE////
-plantController.get('/:id/edit', (req, res)=> {
+plantController.get('/:id/edit', isAuthenticated, (req, res)=> {
     Plant.findById(req.params.id, (error, foundPlant)=> {
         res.render('Edit', {
             plant: foundPlant
@@ -79,7 +92,7 @@ plantController.get('/:id', (req, res)=> {
 
 
 ////CREATE ROUTE////
-plantController.post('/', (req, res) => {
+plantController.post('/', isAuthenticated, (req, res) => {
     Plant.create(req.body, (error, createdPlant)=> {
         if(error){
             show(error)
@@ -90,14 +103,14 @@ plantController.post('/', (req, res) => {
 })
 
 ////UPDATE ROUTE////
-plantController.put('/:id/edit', (req, res)=> {
+plantController.put('/:id/edit', isAuthenticated, (req, res)=> {
     Plant.findByIdAndUpdate(req.params.id, req.body, (error, foundPlant)=> {
         res.redirect('/plants/')
     })
 })
 
 ////DELETE ROUTE////
-plantController.delete('/:id', (req, res)=> {
+plantController.delete('/:id', isAuthenticated, (req, res)=> {
     Plant.findByIdAndDelete(req.params.id, (error, foundPlant)=> {
         res.redirect('/plants/')
     })
