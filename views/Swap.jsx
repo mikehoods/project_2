@@ -15,9 +15,11 @@ class Swap extends Component {
                 <img src={img}/>
                 <p>{description}</p>
                 
-            <form action="/users/:id/swaps" method="post">
-                Message Owner: <input type="textarea" name="swapMessage"/><br/>
-                Requested Quantity: <input type="number" name="swapQty"/><br/>
+            <form action="/swaps/" method="post">
+                Message To Owner: <input type="textarea" name="msg"/><br/>
+                Requested Quantity: <input type="number" name="qtyRequested"/><br/>
+                <input type="hidden" name="requestFrom" value={this.props.username}/>
+                <input type="hidden" name="title" value={`Request for ${itemname}`}/>
                 <input type="submit" value=" Request Swap" class="btn"/>
                 <a href="/plants" class="btn">Back to Plants</a>
             </form>

@@ -8,6 +8,7 @@ const app = express ();
 require('dotenv').config()
 const plantsController = require('./controllers/plants.js')
 const userController = require('./controllers/users_controller.js')
+const swapController = require('./controllers/swaps.js')
 const session = require('express-session')
 const User = require('./models/users.js')
 const bcrypt = require('bcrypt')
@@ -63,6 +64,7 @@ app.engine('jsx', require('express-react-views').createEngine())
 /////////////////////
 app.use('/plants', plantsController)
 app.use('/users', userController)
+app.use('/swaps', swapController)
 
 /////////////////////
 /// Route Route

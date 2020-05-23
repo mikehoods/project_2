@@ -6,7 +6,7 @@ const swapSchema = new Schema({
     msg: String,
     requestFrom: String,
     qtyRequested: Number,
-    approved: Boolean
+    approved: {Boolean, default: false}
 }, {timestamps: true}
 )
 
