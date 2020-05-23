@@ -11,8 +11,8 @@ class NewUser extends React.Component {
                         User Name: <input type="text" name="username" class="form-group"/>
                         <br/>
                         Password: <input type="password" name="password" class="form-group"/>
-                        {/* <br/>
-                        Location: <input type="text" name="location" class="form-group"/> */}
+                        <br/>
+                        Location: <input type="text" name="location" class="form-group"/>
                         <br/>
                         <input type="submit" value="Create User" class="btn"/>
                     </form>

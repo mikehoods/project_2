@@ -1,6 +1,13 @@
 body {
     text-align: center;
 }
+.navDiv {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
 .btn {
     background-color: green;
     color: whitesmoke;
