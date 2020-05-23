@@ -5,7 +5,8 @@ const plantSchema = new Schema({
     description: String,
     img: String,
     qty: Number,
-    plantType: String
+    plantType: String,
+    owner: String
 }, {timestamps: true}
 )
 

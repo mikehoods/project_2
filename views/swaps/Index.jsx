@@ -10,7 +10,8 @@ class SwapIndex extends React.Component {
                     {this.props.swaps.map((swap, i) => {
                         return (
                             <div key={i}>
-                                <h2>{swap.title}</h2>
+                                <h2>{swap.owner}: {swap.title}</h2>
+                                <h3>From: {swap.requestFrom}</h3>
                                 <p>{swap.msg}</p>
                             </div>
                         )

@@ -2,20 +2,12 @@ const bcrypt = require('bcrypt')
 const express = require('express')
 const users = express.Router()
 const User = require('../models/users.js')
-const Plant = require('../models/plants.js')
 
 
 ////New User////
 users.get('/new', (req, res)=> {
     res.render('users/New')
 })
-
-////Show User Swaps////
-// users.get('/:id/swap', (req, res)=> {
-//     res.render('users/Swap') {
-
-//     }
-// })
 
 ////Create User////
 users.post('/', (req, res)=> {

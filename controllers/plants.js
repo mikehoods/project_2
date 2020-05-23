@@ -22,21 +22,24 @@ plantController.get('/seed', (req, res)=> {
             description: "So yummy!",
             img: "https://imgur.com/4wSfofe.jpg",
             qty: 3,
-            plantType: "produce"
+            plantType: "produce",
+            owner: "Mike"
         },
         {
             itemname: "Calendula",
             description: "Strawberry blonde heirloom variety!",
             img: "https://i.imgur.com/qFcXYU3.jpg",
             qty: 25,
-            plantType: "seed"
+            plantType: "seed",
+            owner: "PlantManATX"
         },
         {
             itemname: "Tomatoes",
             description: "Mix of homegrown, organic goodness.",
             img: "https://i.imgur.com/O0oR9hT.jpg",
             qty: 12,
-            plantType: "produce"
+            plantType: "produce",
+            owner: "PlantManATX"
         }
     ], (error, newPlants)=>{
         res.redirect('/plants')
@@ -47,7 +50,9 @@ plantController.get('/seed', (req, res)=> {
 
 ////NEW ROUTE////
 plantController.get('/new', isAuthenticated, (req, res)=> {
-    res.render('New')
+    res.render('New', {
+        username: req.session.currentUser
+    })
 })
 
 /////INDEX ROUTE////

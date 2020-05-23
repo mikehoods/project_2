@@ -10,6 +10,7 @@ class New extends Component {
                     <h1>Add New Item</h1>
                     <form action="/plants" method="POST">
                 Item Name:<input type="text" name="itemname"/>
+                <input type="hidden" name="owner" value={this.props.username}/>
                 Description:<input type="textarea" name="description"/>
                 Quantity:<input type="number" name="qty"/>
                 Image:<input type="url" name="img"/>

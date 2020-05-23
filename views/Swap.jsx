@@ -4,7 +4,7 @@ const Layout = require('./components/Layout.jsx')
 
 class Swap extends Component {
     render() {
-        const { itemname, description, qty, plantType, img} = this.props.plant
+        const { itemname, description, qty, plantType, owner, img} = this.props.plant
         const { plant } = this.props
         return(
             <Layout>
@@ -20,6 +20,7 @@ class Swap extends Component {
                 Requested Quantity: <input type="number" name="qtyRequested"/><br/>
                 <input type="hidden" name="requestFrom" value={this.props.username}/>
                 <input type="hidden" name="title" value={`Request for ${itemname}`}/>
+                <input type="hidden" name="owner" value={owner}/>
                 <input type="submit" value=" Request Swap" class="btn"/>
                 <a href="/plants" class="btn">Back to Plants</a>
             </form>
