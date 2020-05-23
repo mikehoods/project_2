@@ -78,11 +78,22 @@ plantController.get('/:id/edit', isAuthenticated, (req, res)=> {
     })
 })
 
+////SWAP ROUTE////
+plantController.get('/:id/swap', isAuthenticated, (req, res)=> {
+    Plant.findById(req.params.id, (error, foundPlant)=> {
+        res.render('Swap', {
+            plant: foundPlant,
+            username: req.session.currentUser
+        })
+    })
+})
+
 ////SHOW ROUTE////
 plantController.get('/:id', (req, res)=> {
     Plant.findById(req.params.id, (error, foundPlant)=> {
         res.render('Show', {
-            plant: foundPlant
+            plant: foundPlant,
+            username: req.session.currentUser
         })
     })
 })

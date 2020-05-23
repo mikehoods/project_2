@@ -6,6 +6,16 @@ class Show extends Component {
     render() {
         const { itemname, qty, description, img } = this.props.plant
         const { plant } = this.props
+        const loggedIn = (
+            <div>
+                <form action={`/plants/${plant._id}/edit`} method="GET">
+                        <input type="submit" value="Edit" class="btn"/>
+                    </form>
+                    <form action={`/plants/${plant._id}?_method=DELETE`} method="POST">
+                        <input type="submit" value="Delete" class="btn"/>
+                    </form>
+            </div>
+        )
         return (
             <Layout>
                 <div>
@@ -13,11 +23,11 @@ class Show extends Component {
                     <img src={img}/>
                     <p>{description}</p>
                     <h2>Available: {qty}</h2>
-                    <form action={`/plants/${plant._id}/edit`} method="GET">
-                        <input type="submit" value="Edit" class="btn"/>
-                    </form>
-                    <form action={`/plants/${plant._id}?_method=DELETE`} method="POST">
-                        <input type="submit" value="Delete" class="btn"/>
+                    <div>
+                        {this.props.username ? loggedIn : ''}
+                    </div>
+                    <form action={`/plants/${plant._id}/swap`} method="GET">
+                        <input type="submit" value="Swap" class="btn"/>
                     </form>
                     <a href="/plants/" class="btn">Back To Plants</a>
                 </div>
