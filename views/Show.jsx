@@ -6,14 +6,14 @@ class Show extends Component {
     render() {
         const { itemname, qty, description, img } = this.props.plant
         const { plant } = this.props
-        const loggedIn = (
+        const ownsPlant = (
             <div>
                 <form action={`/plants/${plant._id}/edit`} method="GET">
-                        <input type="submit" value="Edit" class="btn"/>
-                    </form>
-                    <form action={`/plants/${plant._id}?_method=DELETE`} method="POST">
-                        <input type="submit" value="Delete" class="btn"/>
-                    </form>
+                    <input type="submit" value="Edit" class="btn"/>
+                </form>
+                <form action={`/plants/${plant._id}?_method=DELETE`} method="POST">
+                    <input type="submit" value="Delete" class="btn"/>
+                </form>
             </div>
         )
         return (
@@ -24,7 +24,7 @@ class Show extends Component {
                     <p>{description}</p>
                     <h2>Available: {qty}</h2>
                     <div>
-                        {this.props.username ? loggedIn : ''}
+                        {(this.props.username === plant.owner) ? ownsPlant : ''}
                     </div>
                     <form action={`/plants/${plant._id}/swap`} method="GET">
                         <input type="submit" value="Swap" class="btn"/>

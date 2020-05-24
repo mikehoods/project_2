@@ -12,6 +12,7 @@ class LoginUser extends React.Component {
                         Password: <input type="password" name="password" class="form-control"/><br/>
                         <input type="submit" name="" value="Login" class="btn"/>
                         <a href="/users/new" class="btn">Sign Up</a>
+                        <a href="/plants" class="btn">Nope</a>
                     </form>
                 </div>
             </Layout>
