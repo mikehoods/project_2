@@ -9,8 +9,8 @@ const swapSchema = new Schema({
     owner: String,
     plant1: String,
     plant2: String,
-    initiated: {Boolean, default: false},
-    approved: {Boolean, default: false}
+    initiated: Boolean,
+    approved: Boolean,
 }, {timestamps: true}
 )
 
