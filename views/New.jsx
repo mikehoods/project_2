@@ -8,24 +8,21 @@ class New extends Component {
             <Layout>
                 <div>
                     <h1>Add New Item</h1>
-                    <form action="/plants" method="POST">
-                Item Name:<input type="text" name="itemname"/>
+                    <form action="/plants" method="POST" class="form-group">
+                Item Name:<input type="text" name="itemname" class="form-control" autoFocus/>
                 <input type="hidden" name="owner" value={this.props.username}/>
-                Description:<input type="textarea" name="description"/>
-                Quantity:<input type="number" name="qty"/>
-                Image:<input type="url" name="img"/>
-                Plant Type:
-                <input type="radio" id="plantCutting" name="plantType" value="cutting"/>
-                <label for="cutting">Cutting</label><br/>
-                <input type="radio" id="plantStart" name="plantType" value="start"/>
-                <label for="start">Start</label><br/>
-                <input type="radio" id="plantSeed" name="plantType" value="seed"/>
-                <label for="seed">Seed</label>
-                <input type="radio" id="plantProduce" name="plantType" value="produce"/>
-                <label for="seed">Produce</label>
-                <input type="radio" id="plantOther" name="plantType" value="seed"/>
-                <label for="other">Other</label>
+                Description:<input type="textarea" name="description"class="form-control"/>
+                Quantity:<input type="number" name="qty" class="form-control"/>
+                Image:<input type="url" name="img" class="form-control"/>
+                Plant Type:<select id="plantType" name="plantType">
+                    <option value="cutting">cutting</option>
+                    <option value="start">start</option>
+                    <option value="produce">produce</option>
+                    <option value="seed">seed</option>
+                    <option value="other">other</option>
+                </select><br/>
                 <input type="submit" value="Add Item" class="btn"/>
+                <a href="/plants" class="btn">Nevermind</a>
             </form>
                 </div>
             </Layout>

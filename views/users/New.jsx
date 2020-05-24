@@ -8,7 +8,7 @@ class NewUser extends React.Component {
                 <div>
                     <h1>New User</h1>
                     <form action="/users/" method="POST" class="form-group">
-                        User Name: <input type="text" name="username" class="form-group"/>
+                        User Name: <input type="text" name="username" class="form-group" autoFocus/>
                         <br/>
                         Password: <input type="password" name="password" class="form-group"/>
                         <br/>

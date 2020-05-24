@@ -20,21 +20,12 @@ class SwapIndex extends React.Component {
         const requestedSwaps = (allSwaps.filter(youRequested))
         const ownedSwaps = (allSwaps.filter(theyRequested))
 
-        console.log(allSwaps)
-        console.log(requestedSwaps)
+        // console.log(allSwaps)
+        // console.log(requestedSwaps)
         return (
             <Layout>
                 <h1>{this.props.username}'s Swaps</h1>
                 <div>
-                    {/* {this.props.swaps.map((swap, i) => {
-                        return (
-                            <div key={i}>
-                                <h2>{swap.owner}: {swap.title}</h2>
-                                <h3>From: {swap.requestFrom}</h3>
-                                <p>{swap.msg}</p>
-                            </div>
-                        )
-                    })}     */}
                     <h1>Your Requests</h1>
                     {requestedSwaps.map((swap, i) => {
                         return (

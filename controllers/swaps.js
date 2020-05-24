@@ -1,6 +1,7 @@
 const express = require('express')
 const swaps = express.Router()
 const Swap = require('../models/swaps.js')
+const Plant = require('../models/plants.js')
 
 const isAuthenticated = (req, res, next)=> {
     if (req.session.currentUser) {
@@ -27,9 +28,12 @@ swaps.get('/', (req, res)=> {
 ////Swap Show Route////
 swaps.get('/:id', isAuthenticated, (req, res)=> {
     Swap.findById(req.params.id, (error, foundSwap)=> {
-        res.render('swaps/Show', {
-            swap: foundSwap,
-            username: req.session.currentUser
+        Plant.find({}, (error, allPlants)=> {
+            res.render('swaps/Show', {
+                swap: foundSwap,
+                plants: allPlants,
+                username: req.session.currentUser
+            })
         })
     })
 })
