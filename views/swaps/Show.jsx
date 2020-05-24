@@ -19,13 +19,15 @@ class ShowSwap extends React.Component {
         const theirRequest = (
             <div>
                 <h2>{requestFrom}'s Plants</h2>
-                {swapChoices.map((swap, i) => {
+                {swapChoices.map((plant2, i) => {
                         return (
                             <div key={i}>
-                                <h2>{swap.itemname}</h2>
-                                <a href={`/plants/${swap._id}`}><img src={swap.img} alt={swap.itemname}/></a>
-                                <h2>Available:{swap.qty}</h2>
-                                <form>
+                                <h2>{plant2.itemname}</h2>
+                                <a href={`/plants/${plant2._id}`}><img src={plant2.img} alt={plant2.itemname}/></a>
+                                <h2>Available:{plant2.qty}</h2>
+                                <form action={`/swaps/:id?_method=put`}method="POST">
+                                    <input type="hidden" name="plant2" value={plant2._id}/>
+                                    <input type="hidden" name="initiated" value="true"/>
                                     <input type="submit" value="Gimme!" class="btn"/>
                                 </form>
                             </div>
@@ -33,8 +35,8 @@ class ShowSwap extends React.Component {
                     })}
             </div>
         )
-        console.log(thePlants)
-        console.log(swapChoices)
+        // console.log(thePlants)
+        // console.log(swapChoices)
         return (
             <Layout>
                 <h1>Wanna Swap?</h1>

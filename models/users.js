@@ -6,6 +6,7 @@ const userSchema = Schema({
     password: String,
     location: String,
     img: String,
+    swapMethod: String
 })
 
 const User = mongoose.model('User', userSchema)

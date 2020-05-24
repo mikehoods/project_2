@@ -21,6 +21,7 @@ class Swap extends Component {
                 <input type="hidden" name="requestFrom" value={this.props.username}/>
                 <input type="hidden" name="title" value={`Request for ${itemname}`}/>
                 <input type="hidden" name="owner" value={owner}/>
+                <input type="hidden" name="plant1" value={plant._id}/>
                 <input type="submit" value=" Request Swap" class="btn"/>
                 <a href="/plants" class="btn">Back to Plants</a>
             </form>

@@ -21,7 +21,8 @@ class SwapIndex extends React.Component {
         const ownedSwaps = (allSwaps.filter(theyRequested))
 
         // console.log(allSwaps)
-        // console.log(requestedSwaps)
+        console.log(requestedSwaps)
+        console.log(ownedSwaps)
         return (
             <Layout>
                 <h1>{this.props.username}'s Swaps</h1>

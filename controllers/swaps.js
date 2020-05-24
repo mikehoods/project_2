@@ -49,4 +49,11 @@ swaps.post('/', isAuthenticated, (req, res) => {
     })
 })
 
+////Update Swap Route////
+swaps.put('/:id', isAuthenticated, (req, res)=> {
+    Swap.findByIdAndUpdate(req.params.id, req.body, (error, foundSwap)=> {
+        res.redirect('/swaps/')
+    })
+})
+
 module.exports = swaps

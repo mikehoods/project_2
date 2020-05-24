@@ -7,6 +7,9 @@ const swapSchema = new Schema({
     requestFrom: String,
     qtyRequested: Number,
     owner: String,
+    plant1: String,
+    plant2: String,
+    initiated: {Boolean, default: false},
     approved: {Boolean, default: false}
 }, {timestamps: true}
 )

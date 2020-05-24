@@ -14,7 +14,12 @@ class NewUser extends React.Component {
                         <br/>
                         Location: <input type="text" name="location" class="form-group"/>
                         <br/>
-                        <input type="submit" value="Create User" class="btn"/>
+                        Swap Method:<select id="swapMethod" name="swapMethod">
+                    <option value="deliver">Can Deliver</option>
+                    <option value="pickup">Pickup Only</option>
+                    <option value="any">Pickup or Delivery</option>
+                </select><br/>
+                <input type="submit" value="Create User" class="btn"/>
                         <a href="/plants" class="btn">Maybe Later</a>
                     </form>
                 </div>
