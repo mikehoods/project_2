@@ -27,7 +27,10 @@ class ShowSwap extends React.Component {
                                 <h2>Available:{plant2.qty}</h2>
                                 <form action={`/swaps/${this.props.swap._id}?_method=put`}method="POST">
                                     <input type="hidden" name="plant2" value={plant2._id}/>
+                                    <input type="hidden" name="itemName2" value={plant2.itemname}/>
+                                    <input type="hidden" name="img2" value={plant2.img}/>
                                     <input type="hidden" name="initiated" value="true"/>
+                                    How Many? <input type="number" name="qty2"/>
                                     <input type="submit" value="Gimme!" class="btn"/>
                                 </form>
                             </div>

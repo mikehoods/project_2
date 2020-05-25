@@ -30,26 +30,80 @@ class SwapIndex extends React.Component {
         console.log(ownedSwaps)
         return (
             <Layout>
-                <h1>{this.props.username}'s Swaps</h1>
+                <header><h1>{this.props.username}'s Swaps</h1>
+                </header>
                 <div>
-                    <h1>Your Requests</h1>
+                    <div id="yourRequests">
+                        <h1>Your Requests</h1>
+                    </div>
                     {requestedSwaps.map((swap, i) => {
                         return (
-                            <div key={i}>
-                                <h2><a href={`/swaps/${swap._id}`}>{swap.title} - sent to {swap.owner}</a></h2>
-                                {/* <h3>From: {swap.requestFrom}</h3> */}
-                                <p>{swap.msg}</p>
+                            <div key={i} class="swap-container">
+                                <h2><a href={`/swaps/${swap._id}`}>Request for {swap.itemName1} - sent to {swap.owner}</a></h2>
+                                <h3>
+                                    {new Intl.DateTimeFormat("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "2-digit"
+                                    }).format(swap.createdAt)}
+                                </h3>
+                                <div class="swapImg-row">
+                                    <div>
+                                        <img src={swap.img1}/><br/>
+                                        {swap.itemName1}<br/>
+                                        Qty: {swap.qty1}
+                                    </div>
+                                    <div>
+                                    <ion-icon name="swap-horizontal-sharp"></ion-icon>
+                                    </div>
+                                    <div>
+                                        <img src={swap.img2}/><br/>
+                                        {swap.itemName2}<br/>
+                                        Qty: {swap.qty2}
+                                    </div>
+                                </div>
+                                <div class="request-btnDiv">
+                                <a href="#" class="btn">Message Owner</a>
                                 {swap.initiated ? isInitiated : ''}
+                                </div>
                             </div>
                         )
                     })}
-                    <h1>Their Requests</h1>
+                    <div id="theirRequests">
+                        <h1>Their Requests</h1>
+                    </div>
                     {ownedSwaps.map((swap, i) => {
                         return (
-                            <div key={i}>
-                                <h2><a href={`/swaps/${swap._id}`}>{swap.title}</a></h2>
+                            <div key={i} class="swap-container">
+                                <h2><a href={`/swaps/${swap._id}`}>{swap.itemName1}</a></h2>
                                 <h3>From: {swap.requestFrom}</h3>
-                                <p>{swap.msg}</p>
+                                <h3>
+                                    {new Intl.DateTimeFormat("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "2-digit"
+                                    }).format(swap.createdAt)}
+                                </h3>
+                                <div class="swapImg-row">
+                                    <div>
+                                        <h3>They Want</h3>
+                                        <img src={swap.img1}/><br/>
+                                        {swap.itemName1}<br/>
+                                        Qty: {swap.qty1}
+                                    </div>
+                                    <div>
+                                    <ion-icon name="swap-horizontal-sharp"></ion-icon>
+                                    </div>
+                                    <div>
+                                        <h3>You Want</h3>
+                                        <img src={swap.img2}/><br/>
+                                        {swap.itemName2}<br/>
+                                        Qty: {swap.qty2}
+                                    </div>
+                                </div>
+                                <div class="request-btnDiv">
+                                <a href="#" class="btn">Message Owner</a>
+                                </div>                                
                             </div>
                         )
                     })}

@@ -23,8 +23,10 @@ class Index extends Component {
         return(
             <Layout>
                 <div>
+                    <header>
                     <h1>Victory</h1>
                     <h2>virtual plant swap</h2>
+                    </header>
                     <nav>
                         {this.props.username ? logout : login}
                     </nav>
@@ -34,7 +36,7 @@ class Index extends Component {
                             <div key={i}>
                                 <h2>{plant.itemname}</h2>
                                 <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
-                                <h2>Available:{plant.qty}</h2>
+                                <h2>Available: {plant.qty}</h2>
                             </div>
                         )
                     })}    

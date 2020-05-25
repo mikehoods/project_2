@@ -1,5 +1,15 @@
 body {
     text-align: center;
+    font-family: 'Advent Pro', sans-serif;
+}
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Fredericka the Great', cursive;
+}
+header h1 {
+    font-size: 4rem;
 }
 .navDiv {
     display: flex;
@@ -16,4 +26,39 @@ body {
 img {
     max-width: 50%;
     border-radius: 16px;
+}
+#yourRequests {
+    background-color: rgb(59, 101, 17);
+    color: whitesmoke;
+    margin-top: 1.5rem;
+}
+#theirRequests {
+    background-color: rgb(0, 113, 138);
+    color: whitesmoke;
+    margin-top: 2rem;
+}
+.swap-container {
+    border: 1px solid black;
+    margin: 1rem 2rem;
+    border-radius: 14px;
+    padding: .5rem;
+}
+.swap-container h2 a {
+    color: black;
+}
+.swapImg-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.swapImg-row  img {
+    width: 30vw;
+}
+.request-btnDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+ion-icon {
+    font-size: 4rem;
+    color: green;
 }
