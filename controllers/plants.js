@@ -2,6 +2,7 @@ const express = require('express')
 const plantController = express.Router()
 const Plant = require('../models/plants.js')
 
+////Check for authentication////
 const isAuthenticated = (req, res, next)=> {
     if (req.session.currentUser) {
         return next()
@@ -57,20 +58,16 @@ plantController.get('/new', isAuthenticated, (req, res)=> {
 
 /////INDEX ROUTE////
 plantController.get('/', (req, res)=> {
-    const thisRunsNext = (error, allPlants) => {
+    Plant.find({}, (error, allPlants)=> {
         if(error){
             show(error)
         } else {
-            const props = {
-            logs: allPlants
-            }
             res.render('Index', {
                 plants: allPlants,
                 username: req.session.currentUser
-            })
+        })
         }
-    }
-    Plant.find({}, thisRunsNext)
+    })
 })
 
 

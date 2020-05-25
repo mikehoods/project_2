@@ -10,6 +10,7 @@ header {
 }
 header h1 {
     font-size: 4rem;
+    color: green;
 }
 .navDiv {
     display: flex;
@@ -18,10 +19,16 @@ header h1 {
     align-items: center;
     border-bottom: 2px solid black;
 }
+.navLogin {
+    justify-content: center;
+}
 .btn {
     background-color: green;
     color: whitesmoke;
     margin: .5rem;
+}
+.plants-container {
+    margin-top: 2rem;
 }
 img {
     max-width: 50%;

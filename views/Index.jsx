@@ -8,6 +8,7 @@ class Index extends Component {
             <div class="navDiv">
                 <h2>Hey there {this.props.username}</h2>
                 <a href="/swaps" class="btn">My Swaps</a>
+                <a href="/messages" class="btn">Messages</a>
                 <a href="/plants/new" class="btn">Add A Plant</a>
                 <form action="/sessions/?_method=delete" method="post">
                     <input type="submit" value="Logout" class="btn"/>
@@ -15,7 +16,7 @@ class Index extends Component {
             </div>
         )
         const login = (
-            <div>
+            <div class="navDiv navLogin">
                 <a href="/sessions/new" class="btn">Login</a>
                 <a href="/users/new" class="btn">Sign Up</a>
             </div>
@@ -30,7 +31,7 @@ class Index extends Component {
                     <nav>
                         {this.props.username ? logout : login}
                     </nav>
-                <div>
+                <div class="plants-container">
                     {this.props.plants.map((plant, i) => {
                         return (
                             <div key={i}>

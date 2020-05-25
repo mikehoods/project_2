@@ -2,7 +2,10 @@ const express = require('express')
 const swaps = express.Router()
 const Swap = require('../models/swaps.js')
 const Plant = require('../models/plants.js')
+const show = console.log
 
+
+////Check for authentication////
 const isAuthenticated = (req, res, next)=> {
     if (req.session.currentUser) {
         return next()
@@ -50,6 +53,12 @@ swaps.post('/', isAuthenticated, (req, res) => {
 })
 
 ////Update Swap Route////
+swaps.put('/', isAuthenticated, (req, res)=> {
+    Swap.findByIdAndUpdate(req.params.id, req.body, (error, allSwaps)=> {
+        res.redirect('/swaps/')
+    })
+})
+
 swaps.put('/:id', isAuthenticated, (req, res)=> {
     Swap.findByIdAndUpdate(req.params.id, req.body, (error, foundSwap)=> {
         res.redirect('/swaps/')
