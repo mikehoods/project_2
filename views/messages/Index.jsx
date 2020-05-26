@@ -9,6 +9,8 @@ class MessageIndex extends React.Component {
                 allMessages.push(message)
             )
         })}
+        ////Reverse array to show newest message first////
+        allMessages.reverse()
         ////Display filter to show messages sent to you////
         const yourMsgs = (yours, i) => {
             

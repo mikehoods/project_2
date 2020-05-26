@@ -9,6 +9,8 @@ class SwapIndex extends React.Component {
                 allSwaps.push(swap)
             )
         })}
+        ////Reverse array to show newest swaps first////
+        allSwaps.reverse()
         ////Display filter for swaps you started////
         const youRequested = (owner, i) => {
             
