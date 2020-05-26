@@ -30,7 +30,9 @@ class SwapIndex extends React.Component {
         // console.log(ownedSwaps)
         return (
             <Layout>
-                <header><h1>{this.props.username}'s Swaps</h1>
+                <header>
+                    <h1>{this.props.username}'s Swaps</h1>
+                    <a href="/plants" class="btn">Back To Plants</a>
                 </header>
                 <div>
                     <div id="yourRequests">
@@ -49,6 +51,7 @@ class SwapIndex extends React.Component {
                                 </h3>
                                 <div class="swapImg-row">
                                     <div>
+                                        <h3>You Want</h3>
                                         <img src={swap.img1}/><br/>
                                         {swap.itemName1}<br/>
                                         Qty: {swap.qty1}
@@ -57,6 +60,7 @@ class SwapIndex extends React.Component {
                                     <ion-icon name="swap-horizontal-sharp"></ion-icon>
                                     </div>
                                     <div>
+                                        <h3>They Want</h3>
                                         <img src={swap.img2}/><br/>
                                         {swap.itemName2}<br/>
                                         Qty: {swap.qty2}
@@ -108,7 +112,6 @@ class SwapIndex extends React.Component {
                         )
                     })}
                 </div>
-                <a href="/plants" class="btn">Back To Plants</a>
             </Layout>
         )
     }

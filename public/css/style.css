@@ -26,6 +26,7 @@ header h1 {
     background-color: green;
     color: whitesmoke;
     margin: .5rem;
+    font-family: 'Advent Pro', sans-serif;
 }
 .plants-container {
     margin-top: 2rem;
@@ -69,10 +70,21 @@ ion-icon {
     font-size: 4rem;
     color: green;
 }
+#msg-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
 #msg-container {
     text-align: left;
     border: 1px solid black;
     margin: .5rem;
     padding: .5rem;
     border-radius: 16px;
+}
+input {
+    border-radius: 16px;
+    padding: .3rem;
+    margin: .5rem;
 }

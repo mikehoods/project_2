@@ -11,7 +11,8 @@ class ShowMessage extends React.Component {
                 <div id="msg-container">
                     <div class="msg">
                     <form action="/messages/" method="post">
-                    To:<br/>
+                    To: <input type="text" name="to" autoFocus/><br/>
+                    Title: <input type="text" name="title" value="no subject"/><br/>
                     Message: <input type="textarea" name="msg"/><br/>
                     <input type="hidden" name="from" value={this.props.username}/>
                     <input type="submit" value="Send Message" class="btn"/>

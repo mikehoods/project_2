@@ -5,17 +5,25 @@ class MessageIndex extends React.Component {
     render() {
         return(
             <Layout>
-                <header>
+                <header id="msg-header">
                     <h1>{this.props.username}'s Messages</h1>
                 </header>
+                    <nav id="msg-nav">
+                        <a href="/swaps" class="btn">My Swaps</a>
+                        <a href="/plants" class="btn">Check Out Plants</a>
+                        <form action="/sessions/?_method=delete" method="post">
+                            <input type="submit" value="Logout" class="btn"/>
+                        </form>
+                    </nav>
+                
                 <div id="msg-container">
                     <div class="msg">
                         {this.props.messages.map((message, i) => {
                             return (
                                 <div key={i}>
-                                    <h2>To:</h2>
+                                    <h2>To: {message.to}</h2>
                                     <h2>From: {message.from}</h2>
-                                    <h2>Title:</h2>
+                                    <h2>Title: {message.title}</h2>
                                     <p>{message.msg}</p>
                                     <form action={`/messages/${message._id}?_method=DELETE`} method="POST">
                                         <input type="submit" value="Delete" class="btn"/>
