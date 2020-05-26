@@ -25,7 +25,7 @@ class Index extends Component {
             <Layout>
                 <div>
                     <header>
-                    <h1>Victory</h1>
+                    <h1 id="indexH1">Victory</h1>
                     <h2>virtual plant swap</h2>
                     </header>
                     <nav>

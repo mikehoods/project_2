@@ -100,7 +100,7 @@ class SwapIndex extends React.Component {
                                     </div>
                                     <div>
                                         <h3>You Want</h3>
-                                        <img src={swap.img2}/><br/>
+                                        <a href={`/swaps/${swap._id}`}><img src={swap.img2}/></a><br/>
                                         {swap.itemName2}<br/>
                                         Qty: {swap.qty2}
                                     </div>
