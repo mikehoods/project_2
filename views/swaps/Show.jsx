@@ -42,7 +42,7 @@ class ShowSwap extends React.Component {
                                     <input type="hidden" name="itemName2" value={plant2.itemname}/>
                                     <input type="hidden" name="img2" value={plant2.img}/>
                                     <input type="hidden" name="initiated" value="true"/>
-                                    How Many? <input type="number" name="qty2"/>
+                                    How Many? <input type="number" name="qty2" min="1" max={plant2.qty}/>
                                     <input type="submit" value="Gimme!" class="btn"/>
                                 </form>
                             </div>

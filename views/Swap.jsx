@@ -20,7 +20,7 @@ class Swap extends Component {
                     <p>{description}</p>
                     <form action="/swaps/" method="post">
                         Message To Owner: <input type="textarea" name="msg"/><br/>
-                        Requested Quantity: <input type="number" name="qty1"/><br/>
+                        Requested Quantity: <input type="number" name="qty1" min="1" max={qty}/><br/>
                         {/* ////Passing hidden values to utilize for swap and swap display//// */}
                         <input type="hidden" name="requestFrom" value={this.props.username}/>
                         <input type="hidden" name="itemName1" value={itemname}/>
