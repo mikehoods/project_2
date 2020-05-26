@@ -14,6 +14,11 @@ class MessageIndex extends React.Component {
             return allMessages[i].to === this.props.username
         }
         const msgsToYou = (allMessages.filter(yourMsgs))
+        const sentMsgs = (sent, i) => {
+            
+            return allMessages[i].from === this.props.username
+        }
+        const msgsFromYou = (allMessages.filter(sentMsgs))
         return(
             <Layout>
                 <header id="msg-header">
@@ -28,10 +33,11 @@ class MessageIndex extends React.Component {
                     </nav>
                 
                 <div id="msg-container">
-                    <div class="msg">
+                    <h2>Inbox</h2>
+                    <div>
                     {msgsToYou.map((message, i) => {
                             return (
-                                <div key={i}>
+                                <div key={i} class="msg">
                                     <h2>To: {message.to}</h2>
                                     <h2>From: {message.from}</h2>
                                     <h2>Date: 
@@ -43,9 +49,36 @@ class MessageIndex extends React.Component {
                                     </h2>
                                     <h2>Title: {message.title}</h2>
                                     <p>{message.msg}</p>
-                                    <form action={`/messages/${message._id}?_method=DELETE`} method="POST">
-                                        <input type="submit" value="Delete" class="btn"/>
-                                    </form>
+                                    <div class="deleteDiv">
+                                        <form action={`/messages/${message._id}?_method=DELETE`} method="POST">
+                                            <input type="submit" value="Delete" class="btn"/>
+                                        </form>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <h2>Sent Messages</h2>
+                    <div>
+                    {msgsFromYou.map((message, i) => {
+                            return (
+                                <div key={i} class="msg">
+                                    <h2>To: {message.to}</h2>
+                                    <h2>From: {message.from}</h2>
+                                    <h2>Date: 
+                                        {new Intl.DateTimeFormat("en-US", {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "2-digit"
+                                        }).format(message.createdAt)}
+                                    </h2>
+                                    <h2>Title: {message.title}</h2>
+                                    <p>{message.msg}</p>
+                                    <div class="deleteDiv">
+                                        <form action={`/messages/${message._id}?_method=DELETE`} method="POST">
+                                            <input type="submit" value="Delete" class="btn"/>
+                                        </form>
+                                    </div>
                                 </div>
                             )
                         })}

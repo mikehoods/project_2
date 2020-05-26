@@ -41,7 +41,8 @@ class SwapIndex extends React.Component {
                     {requestedSwaps.map((swap, i) => {
                         return (
                             <div key={i} class="swap-container">
-                                <h2><a href={`/swaps/${swap._id}`}>Request for {swap.itemName1} - sent to {swap.owner}</a></h2>
+                                <div class="yourSwap-header">
+                                <h3>To: {swap.owner}</h3>
                                 <h3>
                                     {new Intl.DateTimeFormat("en-US", {
                                     year: "numeric",
@@ -49,6 +50,7 @@ class SwapIndex extends React.Component {
                                     day: "2-digit"
                                     }).format(swap.createdAt)}
                                 </h3>
+                                </div>
                                 <div class="swapImg-row">
                                     <div>
                                         <h3>You Want</h3>
@@ -66,7 +68,7 @@ class SwapIndex extends React.Component {
                                         Qty: {swap.qty2}
                                     </div>
                                 </div>
-                                <div class="request-btnDiv">
+                                <div class="request-btnDiv yours-btnDiv">
                                 <a href="/messages/new" class="btn">Message Owner</a>
                                 {swap.initiated ? isInitiated(swap) : ''}
                                 </div>
@@ -79,15 +81,16 @@ class SwapIndex extends React.Component {
                     {ownedSwaps.map((swap, i) => {
                         return (
                             <div key={i} class="swap-container">
-                                <h2><a href={`/swaps/${swap._id}`}>{swap.itemName1}</a></h2>
-                                <h3>From: {swap.requestFrom}</h3>
-                                <h3>
-                                    {new Intl.DateTimeFormat("en-US", {
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "2-digit"
-                                    }).format(swap.createdAt)}
-                                </h3>
+                                <div class="theirSwap-header">
+                                    <h3>From: {swap.requestFrom}</h3>
+                                    <h3>
+                                        {new Intl.DateTimeFormat("en-US", {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "2-digit"
+                                        }).format(swap.createdAt)}
+                                    </h3>
+                                </div>
                                 <div class="swapImg-row">
                                     <div>
                                         <h3>They Want</h3>
@@ -105,7 +108,7 @@ class SwapIndex extends React.Component {
                                         Qty: {swap.qty2}
                                     </div>
                                 </div>
-                                <div class="request-btnDiv">
+                                <div class="request-btnDiv theirs-btnDiv">
                                 <a href="/messages/new" class="btn">Message Owner</a>
                                 </div>                                
                             </div>

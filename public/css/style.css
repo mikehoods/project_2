@@ -37,25 +37,49 @@ header h1 {
 .plants-container {
     margin-top: 2rem;
 }
+.plants-card {
+    /* border: 1px solid black; */
+    margin: 1rem;
+    padding: .5rem;
+}
 img {
     max-width: 50%;
     border-radius: 16px;
 }
+#yourRequests, #theirRequests {
+    color: whitesmoke;
+    padding: .2rem;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    text-shadow: 2px 2px black;
+}
 #yourRequests {
     background-color: teal;
-    color: whitesmoke;
     margin-top: 1.5rem;
+}
+.yourSwap-header {
+    background-color: rgba(0, 128, 128, .7);
+    color: white;
+    margin: 0;
+    border-radius: 14px 14px 0 0;
+    padding: .3rem;
+}
+.theirSwap-header {
+    background-color: rgba(118, 82, 150,.7);
+    color: white;
+    margin: 0;
+    border-radius: 14px 14px 0 0;
+    padding: .3rem;
 }
 #theirRequests {
     background-color: rgb(118, 82, 150);
-    color: whitesmoke;
     margin-top: 2rem;
 }
 .swap-container {
     border: 1px solid black;
     margin: 1rem 2rem;
     border-radius: 14px;
-    padding: .5rem;
+    /* padding: .5rem; */
 }
 .swap-container h2 a {
     color: black;
@@ -64,13 +88,21 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: .6rem 0;
 }
 .swapImg-row  img {
     width: 30vw;
 }
 .request-btnDiv {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    margin-bottom: .5rem;
+}
+.yours-btnDiv .btn {
+    background-color: teal;
+}
+.theirs-btnDiv .btn {
+    background-color: rgb(118, 82, 150);
 }
 ion-icon {
     font-size: 4rem;
@@ -82,7 +114,7 @@ ion-icon {
     justify-content: center;
     border-bottom: 2px solid black;
 }
-#msg-container {
+.msg {
     text-align: left;
     border: 1px solid black;
     margin: .5rem;
@@ -93,4 +125,12 @@ input {
     border-radius: 16px;
     padding: .3rem;
     margin: .5rem;
+}
+.newMessage-btnDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+.deleteDiv {
+    display: flex;
+    justify-content: center;
 }

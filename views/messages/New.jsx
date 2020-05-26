@@ -15,8 +15,10 @@ class ShowMessage extends React.Component {
                     Title: <input type="text" name="title" value="no subject"/><br/>
                     Message: <input type="textarea" name="msg"/><br/>
                     <input type="hidden" name="from" value={this.props.username}/>
-                    <input type="submit" value="Send Message" class="btn"/>
-                    <a href="/swaps" class="btn">Cancel</a>
+                    <div class="newMessage-btnDiv">
+                        <input type="submit" value="Send Message" class="btn"/>
+                        <a href="/swaps" class="btn">Cancel</a>
+                    </div>
                     </form>
                     </div>
                 </div>
