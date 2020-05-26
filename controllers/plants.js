@@ -70,7 +70,6 @@ plantController.get('/', (req, res)=> {
     })
 })
 
-
 ////EDIT ROUTE////
 plantController.get('/:id/edit', isAuthenticated, (req, res)=> {
     Plant.findById(req.params.id, (error, foundPlant)=> {
@@ -102,8 +101,6 @@ plantController.get('/:id', (req, res)=> {
 
 /////////////////Functional Routes////////////////
 
-
-
 ////CREATE ROUTE////
 plantController.post('/', isAuthenticated, (req, res) => {
     Plant.create(req.body, (error, createdPlant)=> {
@@ -128,6 +125,5 @@ plantController.delete('/:id', isAuthenticated, (req, res)=> {
         res.redirect('/plants/')
     })
 })
-
 
 module.exports = plantController

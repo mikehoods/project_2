@@ -6,17 +6,22 @@ class Swap extends Component {
     render() {
         const { itemname, description, qty, plantType, owner, img} = this.props.plant
         const { plant } = this.props
+        ////Check if plant in stock////
+        const inStock = (
+        qty > 0 ? qty : "Out of Stock"
+        )
         return(
             <Layout>
                 <div>
                     <h1>Swap Plant</h1>
                     <h2>{itemname}</h2>
-                    <h3>Type: {plantType} | Available {qty}</h3>
+                    <h3>Type: {plantType} | Available: {inStock}</h3>
                     <img src={img}/>
                     <p>{description}</p>
                     <form action="/swaps/" method="post">
                         Message To Owner: <input type="textarea" name="msg"/><br/>
                         Requested Quantity: <input type="number" name="qty1"/><br/>
+                        {/* ////Passing hidden values to utilize for swap and swap display//// */}
                         <input type="hidden" name="requestFrom" value={this.props.username}/>
                         <input type="hidden" name="itemName1" value={itemname}/>
                         <input type="hidden" name="itemName2" value=""/>

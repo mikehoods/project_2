@@ -9,11 +9,13 @@ class MessageIndex extends React.Component {
                 allMessages.push(message)
             )
         })}
+        ////Display filter to show messages sent to you////
         const yourMsgs = (yours, i) => {
             
             return allMessages[i].to === this.props.username
         }
         const msgsToYou = (allMessages.filter(yourMsgs))
+        ////Display filter to show messages you've sent////
         const sentMsgs = (sent, i) => {
             
             return allMessages[i].from === this.props.username
@@ -40,8 +42,8 @@ class MessageIndex extends React.Component {
                                 <div key={i} class="msg">
                                     <h2>To: {message.to}</h2>
                                     <h2>From: {message.from}</h2>
-                                    <h2>Date: 
-                                        {new Intl.DateTimeFormat("en-US", {
+                                    {/* Got syntax for formatting createdAt here: https://www.carlrippon.com/formatting-dates-and-numbers-in-react/ */}
+                                    <h2>Date: {new Intl.DateTimeFormat("en-US", {
                                         year: "numeric",
                                         month: "long",
                                         day: "2-digit"
@@ -50,6 +52,10 @@ class MessageIndex extends React.Component {
                                     <h2>Title: {message.title}</h2>
                                     <p>{message.msg}</p>
                                     <div class="deleteDiv">
+                                        <form action={`/messages/new`} method="GET">
+                                            <input type="hidden" name="to" value={message.from}/>
+                                            <input type="submit" value="Reply" class="btn"/>
+                                        </form>
                                         <form action={`/messages/${message._id}?_method=DELETE`} method="POST">
                                             <input type="submit" value="Delete" class="btn"/>
                                         </form>
@@ -65,8 +71,8 @@ class MessageIndex extends React.Component {
                                 <div key={i} class="msg">
                                     <h2>To: {message.to}</h2>
                                     <h2>From: {message.from}</h2>
-                                    <h2>Date: 
-                                        {new Intl.DateTimeFormat("en-US", {
+                                    {/* Got syntax for formatting createdAt here: https://www.carlrippon.com/formatting-dates-and-numbers-in-react/ */}
+                                    <h2>Date: {new Intl.DateTimeFormat("en-US", {
                                         year: "numeric",
                                         month: "long",
                                         day: "2-digit"

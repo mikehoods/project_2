@@ -4,7 +4,6 @@ const Swap = require('../models/swaps.js')
 const Plant = require('../models/plants.js')
 const show = console.log
 
-
 ////Check for authentication////
 const isAuthenticated = (req, res, next)=> {
     if (req.session.currentUser) {
@@ -61,5 +60,4 @@ swaps.put('/:id', isAuthenticated, (req, res)=> {
         res.redirect('/swaps/')
     })
 })
-
 module.exports = swaps

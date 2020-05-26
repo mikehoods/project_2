@@ -6,6 +6,7 @@ class Show extends Component {
     render() {
         const { itemname, qty, description, img } = this.props.plant
         const { plant } = this.props
+        ////Display options for plant owner////
         const ownsPlant = (
             <div class="show-btns">
                 <form action={`/plants/${plant._id}/edit`} method="GET">
@@ -17,6 +18,7 @@ class Show extends Component {
                 <a href="/plants/" class="btn">Back To Plants</a>
             </div>
         )
+        ////Display options if plant not owned////
         const doesNotOwn = (
             <div class="show-btns">
                 <form action={`/plants/${plant._id}/swap`} method="GET">
@@ -25,14 +27,17 @@ class Show extends Component {
                 <a href="/plants/" class="btn">Back To Plants</a>
             </div>
         )
-        
+        ////Check if plant is in stock////
+        const inStock = (
+            qty > 0 ? qty : "Out of Stock"
+            )
         return (
             <Layout>
                 <div>
                     <h1>{itemname}</h1>
                     <img src={img}/>
                     <p>{description}</p>
-                    <h2>Available: {qty}</h2>
+                    <h2>Available: {inStock}</h2>
                     <div>
                         {(this.props.username === plant.owner) ? ownsPlant : doesNotOwn}
                     </div>

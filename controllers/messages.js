@@ -1,7 +1,5 @@
 const express = require('express')
 const messages = express.Router()
-// const Swap = require('../models/swaps.js')
-// const Plant = require('../models/plants.js')
 const Message = require('../models/messages.js')
 const show = console.log
 
@@ -35,18 +33,16 @@ messages.get('/', isAuthenticated, (req, res)=> {
         }
     })
 })
-
-////Swap Show Route////
-messages.get('/:id', isAuthenticated, (req, res)=> {
-    Message.findById(req.params.id, (error, foundMessage)=> {
-        res.render('messages/Show', {
-        swap: foundMessage,
-        username: req.session.currentUser
-        })
-    })
-})
-
-/////Create Swap Route/////
+// ////Message Show Route////
+// messages.get('/:id', isAuthenticated, (req, res)=> {
+//     Message.findById(req.params.id, (error, foundMessage)=> {
+//         res.render('messages/Show', {
+//         swap: foundMessage,
+//         username: req.session.currentUser
+//         })
+//     })
+// })
+/////Create Message Route/////
 messages.post('/', isAuthenticated, (req, res) => {
     Message.create(req.body, (error, createdMessage)=> {
         if(error){
@@ -56,14 +52,6 @@ messages.post('/', isAuthenticated, (req, res) => {
         }
     })
 })
-
-////Update Swap Route////
-messages.put('/:id', isAuthenticated, (req, res)=> {
-    Message.findByIdAndUpdate(req.params.id, req.body, (error, foundMessage)=> {
-        res.redirect('/messages/')
-    })
-})
-
 ////Message Delete Route////
 messages.delete('/:id', isAuthenticated, (req, res)=> {
     Message.findByIdAndDelete(req.params.id, (error, foundMessage)=> {

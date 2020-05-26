@@ -9,25 +9,30 @@ class SwapIndex extends React.Component {
                 allSwaps.push(swap)
             )
         })}
+        ////Display filter for swaps you started////
         const youRequested = (owner, i) => {
             
             return allSwaps[i].requestFrom === this.props.username
         }
+        const requestedSwaps = (allSwaps.filter(youRequested))
+        ////Display filter for swaps others started////
         const theyRequested = (owner, i) => {
             
             return allSwaps[i].owner === this.props.username
         }
-        const requestedSwaps = (allSwaps.filter(youRequested))
         const ownedSwaps = (allSwaps.filter(theyRequested))
+        ////Approve Swap form////
         const isInitiated = (swap) => (
             <form action={`/swaps/${swap._id}?_method=put`}method="POST">
                 <input type="hidden" name="approved" value="true"/>
                 <input type="submit" value="Approve Swap" class="btn"/>
             </form>
         )
+        ////Link to swap partner's plants if no choice made////
         const chooseSwap = (swap) => (
             <a href={`/swaps/${swap._id}`}><img src={swap.img2}/></a>
         )
+        ////Display second swap item once chosen////
         const swapChosen = (swap) => (
             <img src={swap.img2}/>
         )
@@ -50,6 +55,7 @@ class SwapIndex extends React.Component {
                                 <div class="yourSwap-header">
                                 <h3>To: {swap.owner}</h3>
                                 <h3>
+                                    {/* Got syntax for formatting createdAt here: https://www.carlrippon.com/formatting-dates-and-numbers-in-react/ */}
                                     {new Intl.DateTimeFormat("en-US", {
                                     year: "numeric",
                                     month: "long",
@@ -90,6 +96,7 @@ class SwapIndex extends React.Component {
                                 <div class="theirSwap-header">
                                     <h3>From: {swap.requestFrom}</h3>
                                     <h3>
+                                        {/* Got syntax for formatting createdAt here: https://www.carlrippon.com/formatting-dates-and-numbers-in-react/ */}
                                         {new Intl.DateTimeFormat("en-US", {
                                         year: "numeric",
                                         month: "long",
