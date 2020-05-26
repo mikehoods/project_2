@@ -31,6 +31,7 @@ swaps.get('/', (req, res)=> {
 ////Swap Show Route////
 swaps.get('/:id', isAuthenticated, (req, res)=> {
     Swap.findById(req.params.id, (error, foundSwap)=> {
+        console.log(foundSwap)
         Plant.find({}, (error, allPlants)=> {
             res.render('swaps/Show', {
                 swap: foundSwap,
@@ -53,13 +54,9 @@ swaps.post('/', isAuthenticated, (req, res) => {
 })
 
 ////Update Swap Route////
-swaps.put('/', isAuthenticated, (req, res)=> {
-    Swap.findByIdAndUpdate(req.params.id, req.body, (error, allSwaps)=> {
-        res.redirect('/swaps/')
-    })
-})
-
 swaps.put('/:id', isAuthenticated, (req, res)=> {
+    console.log(req.params)
+    console.log(req.body)
     Swap.findByIdAndUpdate(req.params.id, req.body, (error, foundSwap)=> {
         res.redirect('/swaps/')
     })

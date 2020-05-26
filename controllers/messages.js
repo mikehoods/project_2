@@ -15,6 +15,13 @@ const isAuthenticated = (req, res, next)=> {
     }
 }
 
+////Message New Route////
+messages.get('/new', isAuthenticated, (req, res)=> {
+    res.render('messages/New', {
+        username: req.session.currentUser
+    })
+})
+
 /////Message Index Route/////
 messages.get('/', isAuthenticated, (req, res)=> {
     Message.find({}, (error, allMessages) => {
@@ -51,14 +58,15 @@ messages.post('/', isAuthenticated, (req, res) => {
 })
 
 ////Update Swap Route////
-messages.put('/', isAuthenticated, (req, res)=> {
-    Message.findByIdAndUpdate(req.params.id, req.body, (error, allMessages)=> {
+messages.put('/:id', isAuthenticated, (req, res)=> {
+    Message.findByIdAndUpdate(req.params.id, req.body, (error, foundMessage)=> {
         res.redirect('/messages/')
     })
 })
 
-messages.put('/:id', isAuthenticated, (req, res)=> {
-    Message.findByIdAndUpdate(req.params.id, req.body, (error, foundMessage)=> {
+////Message Delete Route////
+messages.delete('/:id', isAuthenticated, (req, res)=> {
+    Message.findByIdAndDelete(req.params.id, (error, foundMessage)=> {
         res.redirect('/messages/')
     })
 })

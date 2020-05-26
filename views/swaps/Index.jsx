@@ -19,15 +19,15 @@ class SwapIndex extends React.Component {
         }
         const requestedSwaps = (allSwaps.filter(youRequested))
         const ownedSwaps = (allSwaps.filter(theyRequested))
-        const isInitiated = (
-            <form action={`/swaps/${this.props.swaps._id}?_method=put`}method="POST">
+        const isInitiated = (swap) => (
+            <form action={`/swaps/${swap._id}?_method=put`}method="POST">
                 <input type="hidden" name="approved" value="true"/>
                 <input type="submit" value="Approve Swap" class="btn"/>
             </form>
         )
         // console.log(allSwaps)
         console.log(requestedSwaps)
-        console.log(ownedSwaps)
+        // console.log(ownedSwaps)
         return (
             <Layout>
                 <header><h1>{this.props.username}'s Swaps</h1>
@@ -63,8 +63,8 @@ class SwapIndex extends React.Component {
                                     </div>
                                 </div>
                                 <div class="request-btnDiv">
-                                <a href="#" class="btn">Message Owner</a>
-                                {swap.initiated ? isInitiated : ''}
+                                <a href="/messages/new" class="btn">Message Owner</a>
+                                {swap.initiated ? isInitiated(swap) : ''}
                                 </div>
                             </div>
                         )
@@ -102,7 +102,7 @@ class SwapIndex extends React.Component {
                                     </div>
                                 </div>
                                 <div class="request-btnDiv">
-                                <a href="#" class="btn">Message Owner</a>
+                                <a href="/messages/new" class="btn">Message Owner</a>
                                 </div>                                
                             </div>
                         )

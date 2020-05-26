@@ -69,3 +69,10 @@ ion-icon {
     font-size: 4rem;
     color: green;
 }
+#msg-container {
+    text-align: left;
+    border: 1px solid black;
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 16px;
+}
