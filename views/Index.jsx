@@ -43,7 +43,7 @@ class Index extends Component {
                             <div key={i} class="plants-card">
                                 <h2>{plant.itemname}</h2>
                                 <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
-                                <h2>Type: {plant.plantType} | Available: {inStock(plant)}</h2>
+                                <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
                             </div>
                         )
                     })}    

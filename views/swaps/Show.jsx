@@ -7,9 +7,11 @@ class ShowSwap extends React.Component {
         // const swap = this.props
         const thePlants = []
         {this.props.plants.map((plants, i) => {
+            if(plants.qty > 0) {
             return (
                 thePlants.push(plants)
             )
+            }
         })}
         ////Display filter to show swapper plants available from swap partner////
         const youWant = (owner, i) => {

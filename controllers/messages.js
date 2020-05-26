@@ -33,6 +33,7 @@ messages.get('/', isAuthenticated, (req, res)=> {
         }
     })
 })
+////Might use later////
 // ////Message Show Route////
 // messages.get('/:id', isAuthenticated, (req, res)=> {
 //     Message.findById(req.params.id, (error, foundMessage)=> {
@@ -42,6 +43,7 @@ messages.get('/', isAuthenticated, (req, res)=> {
 //         })
 //     })
 // })
+
 /////Create Message Route/////
 messages.post('/', isAuthenticated, (req, res) => {
     Message.create(req.body, (error, createdMessage)=> {
