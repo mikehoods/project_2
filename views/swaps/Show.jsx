@@ -3,7 +3,7 @@ const Layout = require('../components/Layout.jsx')
 
 class ShowSwap extends React.Component {
     render() {
-        const {title, msg, owner, requestFrom, _id, qtyRequested} = this.props.swap
+        const {title, msg, owner, requestFrom, _id, itemName1} = this.props.swap
         const swap = this.props
         const thePlants = []
         {this.props.plants.map((plants, i) => {
@@ -18,13 +18,13 @@ class ShowSwap extends React.Component {
         const swapChoices = (thePlants.filter(youWant))
         const theirRequest = (
             <div>
-                <h2>{requestFrom}'s Plants</h2>
+                <h2 class="showSwap-requestFrom-h2">{requestFrom}'s Plants</h2>
                 {swapChoices.map((plant2, i) => {
                         return (
                             <div key={i}>
                                 <h2>{plant2.itemname}</h2>
                                 <a href={`/plants/${plant2._id}`}><img src={plant2.img} alt={plant2.itemname}/></a>
-                                <h2>Available:{plant2.qty}</h2>
+                                <h2>Available: {plant2.qty}</h2>
                                 <form action={`/swaps/${_id}?_method=put`}method="POST">
                                     <input type="hidden" name="plant2" value={plant2._id}/>
                                     <input type="hidden" name="itemName2" value={plant2.itemname}/>
@@ -42,8 +42,8 @@ class ShowSwap extends React.Component {
         // console.log(swapChoices)
         return (
             <Layout>
-                <h1>Wanna Swap?</h1>
-                <div>
+                <h1>Wanna swap your {itemName1}?</h1>
+                <div class="showSwap-greeting">
                 <h2>{title}</h2>
                 <h3>Hey {owner}:</h3>
                 <p>{msg} - {requestFrom}</p>

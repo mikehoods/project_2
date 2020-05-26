@@ -25,8 +25,14 @@ class SwapIndex extends React.Component {
                 <input type="submit" value="Approve Swap" class="btn"/>
             </form>
         )
+        const chooseSwap = (swap) => (
+            <a href={`/swaps/${swap._id}`}><img src={swap.img2}/></a>
+        )
+        const swapChosen = (swap) => (
+            <img src={swap.img2}/>
+        )
         // console.log(allSwaps)
-        console.log(requestedSwaps)
+        // console.log(requestedSwaps)
         // console.log(ownedSwaps)
         return (
             <Layout>
@@ -69,7 +75,7 @@ class SwapIndex extends React.Component {
                                     </div>
                                 </div>
                                 <div class="request-btnDiv yours-btnDiv">
-                                <a href="/messages/new" class="btn">Message Owner</a>
+                                <a href="/messages/new" class="btn">Message {swap.owner}</a>
                                 {swap.initiated ? isInitiated(swap) : ''}
                                 </div>
                             </div>
@@ -103,13 +109,13 @@ class SwapIndex extends React.Component {
                                     </div>
                                     <div>
                                         <h3>You Want</h3>
-                                        <a href={`/swaps/${swap._id}`}><img src={swap.img2}/></a><br/>
+                                        {swap.initiated ? swapChosen(swap) : chooseSwap(swap)}<br/>
                                         {swap.itemName2}<br/>
                                         Qty: {swap.qty2}
                                     </div>
                                 </div>
                                 <div class="request-btnDiv theirs-btnDiv">
-                                <a href="/messages/new" class="btn">Message Owner</a>
+                                <a href="/messages/new" class="btn">Message {swap.requestFrom}</a>
                                 </div>                                
                             </div>
                         )
