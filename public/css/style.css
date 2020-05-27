@@ -38,7 +38,6 @@ header h1 {
     margin-top: 2rem;
 }
 .plants-card {
-    /* border: 1px solid black; */
     margin: 1rem;
     padding: .5rem;
 }
@@ -46,34 +45,50 @@ img {
     max-width: 50%;
     border-radius: 16px;
 }
-#yourRequests, #theirRequests {
+#yourRequests, #theirRequests, #approvedSwaps {
     color: whitesmoke;
     padding: .2rem;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     text-shadow: 2px 2px black;
+    margin-top: 2rem;
+}
+#approvedSwaps {
+    background-color: rgb(126, 182, 91);
+}
+.approvedSwap-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    margin: 2rem;
+    border-radius: 26px;
+    padding: .3rem;
+}
+.approvedSwaps-btn {
+    background-color: rgb(126, 182, 91);
 }
 #yourRequests {
     background-color: teal;
-    margin-top: 1.5rem;
 }
+.yourSwap-header, .theirSwap-header {
+    color: white;
+    margin: 0;
+    border-radius: 14px 14px 0 0;
+    padding: .3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .yourSwap-header {
     background-color: rgba(0, 128, 128, .7);
-    color: white;
-    margin: 0;
-    border-radius: 14px 14px 0 0;
-    padding: .3rem;
 }
 .theirSwap-header {
-    background-color: rgba(118, 82, 150,.7);
-    color: white;
-    margin: 0;
-    border-radius: 14px 14px 0 0;
-    padding: .3rem;
+    background-color: rgba(118, 82, 150,.7); 
 }
 #theirRequests {
     background-color: rgb(118, 82, 150);
-    margin-top: 2rem;
 }
 .swap-container {
     border: 1px solid black;

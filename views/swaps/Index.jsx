@@ -3,6 +3,7 @@ const Layout = require('../components/Layout.jsx')
 
 class SwapIndex extends React.Component {
     render() {
+        ////Array of all swaps////
         const allSwaps = []
         {this.props.swaps.map((swap, i) => {
             return (
@@ -11,16 +12,25 @@ class SwapIndex extends React.Component {
         })}
         ////Reverse array to show newest swaps first////
         allSwaps.reverse()
-        ////Display filter for swaps you started////
+        ////Display filter for your approved swaps////
+        const checkIfApproved = (owner, i) => {
+            if (allSwaps[i].approved !== false) {
+                return allSwaps[i].requestFrom || allSwaps[i].owner === this.props.username
+            }
+        }
+        const approvedSwaps = (allSwaps.filter(checkIfApproved))
+        ////Display filter for unapproved swaps you started////
         const youRequested = (owner, i) => {
-            
-            return allSwaps[i].requestFrom === this.props.username
+            if (allSwaps[i].approved === false) {
+                return allSwaps[i].requestFrom === this.props.username
+            }
         }
         const requestedSwaps = (allSwaps.filter(youRequested))
-        ////Display filter for swaps others started////
+        ////Display filter for unapproved swaps others started////
         const theyRequested = (owner, i) => {
-            
-            return allSwaps[i].owner === this.props.username
+            if (allSwaps[i].approved === false) {
+                return allSwaps[i].owner === this.props.username
+            }
         }
         const ownedSwaps = (allSwaps.filter(theyRequested))
         ////Approve Swap form////
@@ -38,9 +48,6 @@ class SwapIndex extends React.Component {
         const swapChosen = (swap) => (
             <img src={swap.img2}/>
         )
-        // console.log(allSwaps)
-        // console.log(requestedSwaps)
-        // console.log(ownedSwaps)
         return (
             <Layout>
                 <header>
@@ -48,6 +55,29 @@ class SwapIndex extends React.Component {
                     <a href="/plants" class="btn">Back To Plants</a>
                 </header>
                 <div>
+                    <div id="approved-container">
+                        <div id="approvedSwaps">
+                            <h1>Approved Swaps</h1>
+                        </div>
+                        {approvedSwaps.map((swap, i) => {
+                            return (
+                                <div key={i} class="approvedSwap-div">
+                                    <h3>
+                                        {/* Got syntax for formatting createdAt here: https://www.carlrippon.com/formatting-dates-and-numbers-in-react/ */}
+                                        {new Intl.DateTimeFormat("en-US", {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "2-digit"
+                                        }).format(swap.createdAt)}
+                                    </h3>
+                                    <h3>{swap.itemName1} for {swap.itemName2}</h3>
+                                    <div class="request-btnDiv">
+                                        <a href="/messages/new" class="btn approvedSwaps-btn">Arrange Your Swap</a>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
                     <div id="yourRequests">
                         <h1>Your Requests</h1>
                     </div>
@@ -64,6 +94,10 @@ class SwapIndex extends React.Component {
                                     day: "2-digit"
                                     }).format(swap.createdAt)}
                                 </h3>
+                                <div class="request-btnDiv yours-btnDiv">
+                                    <a href="/messages/new" class="btn">Message {swap.owner}</a>
+                                    {swap.initiated ? isInitiated(swap) : ''}
+                                </div>
                                 </div>
                                 <div class="swapImg-row">
                                     <div>
@@ -81,10 +115,6 @@ class SwapIndex extends React.Component {
                                         {swap.itemName2}<br/>
                                         Qty: {swap.qty2}
                                     </div>
-                                </div>
-                                <div class="request-btnDiv yours-btnDiv">
-                                <a href="/messages/new" class="btn">Message {swap.owner}</a>
-                                {swap.initiated ? isInitiated(swap) : ''}
                                 </div>
                             </div>
                         )
@@ -105,6 +135,9 @@ class SwapIndex extends React.Component {
                                         day: "2-digit"
                                         }).format(swap.createdAt)}
                                     </h3>
+                                    <div class="request-btnDiv theirs-btnDiv">
+                                        <a href="/messages/new" class="btn">Message {swap.requestFrom}</a>
+                                    </div>  
                                 </div>
                                 <div class="swapImg-row">
                                     <div>
@@ -122,10 +155,7 @@ class SwapIndex extends React.Component {
                                         {swap.itemName2}<br/>
                                         Qty: {swap.qty2}
                                     </div>
-                                </div>
-                                <div class="request-btnDiv theirs-btnDiv">
-                                <a href="/messages/new" class="btn">Message {swap.requestFrom}</a>
-                                </div>                                
+                                </div>                               
                             </div>
                         )
                     })}
