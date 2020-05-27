@@ -82,7 +82,7 @@ class Index extends Component {
                         {this.props.username ? loggedIn : loggedOut}
                     </nav>
                     <div class="plants-container">
-                        <h3>Swap Cuttings</h3>
+                        <h3 class="plantType-h3">Swap Cuttings</h3>
                         <div class="plants-row">
                     {cuttingPlants.map((plant, i) => {
                         return (
@@ -96,7 +96,7 @@ class Index extends Component {
                         </div>
                     </div>
                     <div class="plants-container">
-                        <h3>Swap Starts</h3>
+                        <h3 class="plantType-h3">Swap Starts</h3>
                         <div class="plants-row">
                     {startPlants.map((plant, i) => {
                         return (
@@ -110,7 +110,7 @@ class Index extends Component {
                         </div>
                     </div>
                     <div class="plants-container">
-                        <h3>Swap Seeds</h3>
+                        <h3 class="plantType-h3">Swap Seeds</h3>
                         <div class="plants-row">
                     {seedPlants.map((plant, i) => {
                         return (
@@ -124,7 +124,7 @@ class Index extends Component {
                         </div>
                     </div>
                     <div class="plants-container">
-                        <h3>Swap Produce</h3>
+                        <h3 class="plantType-h3">Swap Produce</h3>
                         <div class="plants-row">
                     {producePlants.map((plant, i) => {
                         return (
@@ -138,7 +138,7 @@ class Index extends Component {
                         </div>   
                     </div>
                     <div class="plants-container">
-                        <h3>Swap Other Stuff</h3>
+                        <h3 class="plantType-h3">Swap Other Stuff</h3>
                         <div class="plants-row">
                     {otherPlants.map((plant, i) => {
                         return (

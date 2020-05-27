@@ -24,6 +24,11 @@ header h1 {
 .navLogin {
     justify-content: center;
 }
+.plantType-h3 {
+    background-color: teal;
+    color: whitesmoke;
+    padding: .3rem;
+}
 .plants-row {
     display: flex;
     justify-content: space-around;
@@ -95,10 +100,10 @@ img {
     background-color: rgba(0, 128, 128, .7);
 }
 .theirSwap-header {
-    background-color: rgba(118, 82, 150,.7); 
+    background-color: teal; 
 }
 #theirRequests {
-    background-color: rgb(118, 82, 150);
+    background-color: rgba(0, 128, 128, .7);
 }
 .swap-container {
     border: 1px solid black;
@@ -126,7 +131,7 @@ img {
     background-color: teal;
 }
 .theirs-btnDiv .btn {
-    background-color: rgb(118, 82, 150);
+    background-color: rgb(90, 157, 158)
 }
 ion-icon {
     font-size: 4rem;
