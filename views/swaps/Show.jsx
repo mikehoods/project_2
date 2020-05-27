@@ -21,15 +21,17 @@ class ShowSwap extends React.Component {
         const swapChoices = (thePlants.filter(youWant))
         return (
             <Layout>
-                <h1>Wanna swap your {itemName1}?</h1>
-                <a href="/swaps" class="btn">Back To Swaps</a>
+                <div class="showSwap-header">
+                    <h1>Wanna swap your {itemName1}?</h1>
+                    <a href="/swaps" class="btn">Back To Swaps</a>
+                </div>
                 <div class="showSwap-greeting">
                 <h2>{title}</h2>
-                <h3>Hey {owner}:</h3>
+                <h3>Hey, {owner}:</h3>
                 <p>{msg} - {requestFrom}</p>
                 </div>
-                <div>
                 <h2 class="showSwap-requestFrom-h2">{requestFrom}'s Plants</h2>
+                <div class="plants-row">
                 {swapChoices.map((plant2, i) => {
                         return (
                             <div key={i}>
@@ -48,7 +50,7 @@ class ShowSwap extends React.Component {
                             </div>
                         )
                     })}
-            </div>
+                </div>
             </Layout>
         )
     }

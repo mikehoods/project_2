@@ -169,15 +169,29 @@ input {
     display: flex;
     justify-content: center;
 }
+.showSwap-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 .showSwap-greeting {
-    border: 1px solid black;
-    margin: 2rem 0;
-    background-color: rgb(118, 82, 150);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: .7rem 0;
+    background-color: teal;
     color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.showSwap-greeting p {
+    padding-top: 1rem;
+    padding-left: 1rem;
 }
 .showSwap-requestFrom-h2 {
-    background-color: rgba(118, 82, 150,.7);
+    background-color: rgb(90, 157, 158);
     color: whitesmoke;
     padding: .3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
