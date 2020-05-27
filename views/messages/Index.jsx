@@ -23,6 +23,12 @@ class MessageIndex extends React.Component {
             return allMessages[i].from === this.props.username
         }
         const msgsFromYou = (allMessages.filter(sentMsgs))
+        const canDelete = (message) => (
+            message.from === this.props.username ?
+                <form action={`/messages/${message._id}?_method=DELETE`} method="POST">
+                    <input type="submit" value="Delete" class="btn"/>
+                </form> : ''
+        )
         return(
             <Layout>
                 <header id="msg-header">
@@ -58,9 +64,7 @@ class MessageIndex extends React.Component {
                                             <input type="hidden" name="to" value={message.from}/>
                                             <input type="submit" value="Reply" class="btn"/>
                                         </form>
-                                        <form action={`/messages/${message._id}?_method=DELETE`} method="POST">
-                                            <input type="submit" value="Delete" class="btn"/>
-                                        </form>
+                                        {canDelete}
                                     </div>
                                 </div>
                             )
