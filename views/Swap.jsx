@@ -4,12 +4,15 @@ const Layout = require('./components/Layout.jsx')
 
 class Swap extends Component {
     render() {
-        const { itemname, description, qty, plantType, owner, img} = this.props.plant
+        let { itemname, description, qty, plantType, owner, img} = this.props.plant
         const { plant } = this.props
         ////Check if plant in stock////
         const inStock = (
         qty > 0 ? qty : "Out of Stock"
         )
+        // const adjustQty = () => {
+        //     return qty -= qty1.value
+        // }
         return(
             <Layout>
                 <div>

@@ -24,6 +24,14 @@ header h1 {
 .navLogin {
     justify-content: center;
 }
+.plants-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.plants-row img {
+    width: 35vw;
+}
 .btn {
     background-color: green;
     color: whitesmoke;

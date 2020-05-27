@@ -27,6 +27,50 @@ class Index extends Component {
         const inStock = (plant) => (
             plant.qty > 0 ? plant.qty : "Out of Stock"
             )
+        ////Array of all plants////
+        const allPlants = []
+        {this.props.plants.map((swap, i) => {
+            return (
+                allPlants.push(swap)
+            )
+        })}
+        ////Reverse array to show newest plants first////
+        allPlants.reverse()
+        ////Display filter for produce type plants////
+        const checkIfProduce = (owner, i) => {
+            if (allPlants[i].plantType === "produce") {
+                return allPlants[i]
+            }
+        }
+        const producePlants = (allPlants.filter(checkIfProduce))
+        ////Display filter for cutting type plants////
+        const checkIfCutting = (owner, i) => {
+            if (allPlants[i].plantType === "cutting") {
+                return allPlants[i]
+            }
+        }
+        const cuttingPlants = (allPlants.filter(checkIfCutting))
+        //Display filter for seed type plants////
+        const checkIfSeed = (owner, i) => {
+            if (allPlants[i].plantType === "seed") {
+                return allPlants[i]
+            }
+        }
+        const seedPlants = (allPlants.filter(checkIfSeed))
+        ////Display filter for starts type plants////
+        const checkIfStart = (owner, i) => {
+            if (allPlants[i].plantType === "start") {
+                return allPlants[i]
+            }
+        }
+        const startPlants = (allPlants.filter(checkIfStart))
+        ////Display filter for other type plants////
+        const checkIfOther = (owner, i) => {
+            if (allPlants[i].plantType === "other") {
+                return allPlants[i]
+            }
+        }
+        const otherPlants = (allPlants.filter(checkIfOther))
         return(
             <Layout>
                 <div>
@@ -37,8 +81,9 @@ class Index extends Component {
                     <nav>
                         {this.props.username ? loggedIn : loggedOut}
                     </nav>
-                <div class="plants-container">
-                    {this.props.plants.map((plant, i) => {
+                    <div class="plants-container">
+                        <h3>Swap Cuttings</h3>
+                    {cuttingPlants.map((plant, i) => {
                         return (
                             <div key={i} class="plants-card">
                                 <h2>{plant.itemname}</h2>
@@ -47,7 +92,57 @@ class Index extends Component {
                             </div>
                         )
                     })}    
-                </div>         
+                    </div>
+                    <div class="plants-container">
+                        <h3>Swap Starts</h3>
+                    {startPlants.map((plant, i) => {
+                        return (
+                            <div key={i} class="plants-card">
+                                <h2>{plant.itemname}</h2>
+                                <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
+                                <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
+                            </div>
+                        )
+                    })}    
+                    </div>
+                    <div class="plants-container">
+                        <h3>Swap Seeds</h3>
+                    {seedPlants.map((plant, i) => {
+                        return (
+                            <div key={i} class="plants-card">
+                                <h2>{plant.itemname}</h2>
+                                <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
+                                <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
+                            </div>
+                        )
+                    })}    
+                    </div>
+                    <div class="plants-container">
+                        <h3>Swap Produce</h3>
+                        <div class="plants-row">
+                    {producePlants.map((plant, i) => {
+                        return (
+                            <div key={i} class="plants-card">
+                                <h2>{plant.itemname}</h2>
+                                <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
+                                <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
+                            </div>
+                        )
+                    })}
+                        </div>   
+                    </div>
+                    <div class="plants-container">
+                        <h3>Swap Other Stuff</h3>
+                    {otherPlants.map((plant, i) => {
+                        return (
+                            <div key={i} class="plants-card">
+                                <h2>{plant.itemname}</h2>
+                                <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
+                                <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
+                            </div>
+                        )
+                    })}    
+                    </div>    
                 </div>
             </Layout>
         )
