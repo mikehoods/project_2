@@ -150,6 +150,12 @@ ion-icon {
     padding: .5rem;
     border-radius: 16px;
 }
+.msg h2 {
+    font-size: 1rem;
+}
+.msg p {
+    font-size: 1.2rem;
+}
 input {
     border-radius: 16px;
     padding: .3rem;

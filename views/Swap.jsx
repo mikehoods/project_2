@@ -19,7 +19,7 @@ class Swap extends Component {
                     <h1>Swap Plant</h1>
                     <h2>{itemname}</h2>
                     <h3>Type: {plantType} | Available: {inStock}</h3>
-                    <img src={img}/>
+                    <img src={img || "/images/nophoto.jpg"}/>
                     <p>{description}</p>
                     <form action="/swaps/" method="post">
                         Message To Owner: <input type="textarea" name="msg"/><br/>

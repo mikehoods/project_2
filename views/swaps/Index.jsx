@@ -52,7 +52,8 @@ class SwapIndex extends React.Component {
             <Layout>
                 <header>
                     <h1>{this.props.username}'s Swaps</h1>
-                    <a href="/plants" class="btn">Back To Plants</a>
+                    <a href="/messages" class="btn">Messages</a>
+                    <a href="/plants" class="btn">Check Out Plants</a>
                 </header>
                 <div>
                     <div id="approved-container">
@@ -102,7 +103,7 @@ class SwapIndex extends React.Component {
                                 <div class="swapImg-row">
                                     <div>
                                         <h3>You Want</h3>
-                                        <img src={swap.img1}/><br/>
+                                        <img src={swap.img1 || "/images/nophoto.jpg"}/><br/>
                                         {swap.itemName1}<br/>
                                         Qty: {swap.qty1}
                                     </div>
@@ -113,7 +114,7 @@ class SwapIndex extends React.Component {
                                         <h3>They Want</h3>
                                         <img src={swap.img2}/><br/>
                                         {swap.itemName2}<br/>
-                                        Qty: {swap.qty2}
+                                        Qty: {swap.qty2 || "?"}
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +143,7 @@ class SwapIndex extends React.Component {
                                 <div class="swapImg-row">
                                     <div>
                                         <h3>They Want</h3>
-                                        <img src={swap.img1}/><br/>
+                                        <img src={swap.img1 || "/images/nophoto.jpg"}/><br/>
                                         {swap.itemName1}<br/>
                                         Qty: {swap.qty1}
                                     </div>
@@ -153,7 +154,7 @@ class SwapIndex extends React.Component {
                                         <h3>You Want</h3>
                                         {swap.initiated ? swapChosen(swap) : chooseSwap(swap)}<br/>
                                         {swap.itemName2}<br/>
-                                        Qty: {swap.qty2}
+                                        Qty: {swap.qty2 || "?"}
                                     </div>
                                 </div>                               
                             </div>

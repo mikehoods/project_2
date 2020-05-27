@@ -34,13 +34,13 @@ class ShowSwap extends React.Component {
                         return (
                             <div key={i}>
                                 <h2>{plant2.itemname}</h2>
-                                <a href={`/plants/${plant2._id}`}><img src={plant2.img} alt={plant2.itemname}/></a>
+                                <img src={plant2.img || "/images/nophoto.jpg"} alt={plant2.itemname}/>
                                 <h2>Available: {plant2.qty}</h2>
                                 <form action={`/swaps/${_id}?_method=put`}method="POST">
                                     {/* ////Pass hidden values for finishing swap and swap display */}
                                     <input type="hidden" name="plant2" value={plant2._id}/>
                                     <input type="hidden" name="itemName2" value={plant2.itemname}/>
-                                    <input type="hidden" name="img2" value={plant2.img}/>
+                                    <input type="hidden" name="img2" value={plant2.img || "/images/nophoto.jpg"}/>
                                     <input type="hidden" name="initiated" value="true"/>
                                     How Many? <input type="number" name="qty2" min="1" max={plant2.qty}/>
                                     <input type="submit" value="Gimme!" class="btn"/>

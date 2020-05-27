@@ -88,7 +88,7 @@ class Index extends Component {
                         return (
                             <div key={i} class="plants-card">
                                 <h2>{plant.itemname}</h2>
-                                <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
+                                <a href={`/plants/${plant._id}`}><img src={plant.img || "/images/nophoto.jpg"} alt={plant.itemname}/></a>
                                 <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
                             </div>
                         )
@@ -102,7 +102,7 @@ class Index extends Component {
                         return (
                             <div key={i} class="plants-card">
                                 <h2>{plant.itemname}</h2>
-                                <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
+                                <a href={`/plants/${plant._id}`}><img src={plant.img || "/images/nophoto.jpg"} alt={plant.itemname}/></a>
                                 <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
                             </div>
                         )
@@ -116,7 +116,7 @@ class Index extends Component {
                         return (
                             <div key={i} class="plants-card">
                                 <h2>{plant.itemname}</h2>
-                                <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
+                                <a href={`/plants/${plant._id}`}><img src={plant.img || "/images/nophoto.jpg"} alt={plant.itemname}/></a>
                                 <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
                             </div>
                         )
@@ -130,7 +130,7 @@ class Index extends Component {
                         return (
                             <div key={i} class="plants-card">
                                 <h2>{plant.itemname}</h2>
-                                <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
+                                <a href={`/plants/${plant._id}`}><img src={plant.img || "/images/nophoto.jpg"} alt={plant.itemname}/></a>
                                 <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
                             </div>
                         )
@@ -144,7 +144,7 @@ class Index extends Component {
                         return (
                             <div key={i} class="plants-card">
                                 <h2>{plant.itemname}</h2>
-                                <a href={`/plants/${plant._id}`}><img src={plant.img} alt={plant.itemname}/></a>
+                                <a href={`/plants/${plant._id}`}><img src={plant.img || "/images/nophoto.jpg"} alt={plant.itemname}/></a>
                                 <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
                             </div>
                         )
