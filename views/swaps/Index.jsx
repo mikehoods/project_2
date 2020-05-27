@@ -14,8 +14,8 @@ class SwapIndex extends React.Component {
         allSwaps.reverse()
         ////Display filter for your approved swaps////
         const checkIfApproved = (owner, i) => {
-            if (allSwaps[i].approved !== false) {
-                return allSwaps[i].requestFrom || allSwaps[i].owner === this.props.username
+            if (allSwaps[i].approved === true) {
+                return allSwaps[i].requestFrom === this.props.username || allSwaps[i].owner === this.props.username
             }
         }
         const approvedSwaps = (allSwaps.filter(checkIfApproved))
@@ -52,8 +52,12 @@ class SwapIndex extends React.Component {
             <Layout>
                 <header>
                     <h1>{this.props.username}'s Swaps</h1>
+                    <a href="/plants/" class="btn">Find Plants</a>
                     <a href="/messages" class="btn">Messages</a>
-                    <a href="/plants" class="btn">Check Out Plants</a>
+                    <a href="/plants/myplants" class="btn">My Plants</a>
+                    <form action="/sessions/?_method=delete" method="post">
+                        <input type="submit" value="Logout" class="btn"/>
+                    </form>
                 </header>
                 <div>
                     <div id="approved-container">

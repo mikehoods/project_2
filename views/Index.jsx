@@ -10,7 +10,7 @@ class Index extends Component {
                 <h2>Hey there {this.props.username}</h2>
                 <a href="/swaps" class="btn">My Swaps</a>
                 <a href="/messages" class="btn">Messages</a>
-                <a href="/plants/new" class="btn">Add A Plant</a>
+                <a href="/plants/myplants" class="btn">My Plants</a>
                 <form action="/sessions/?_method=delete" method="post">
                     <input type="submit" value="Logout" class="btn"/>
                 </form>

@@ -56,6 +56,20 @@ plantController.get('/new', isAuthenticated, (req, res)=> {
     })
 })
 
+/////MYPLANTS ROUTE////
+plantController.get('/myplants', (req, res)=> {
+    Plant.find({}, (error, allPlants)=> {
+        if(error){
+            show(error)
+        } else {
+            res.render('MyPlants', {
+                plants: allPlants,
+                username: req.session.currentUser
+        })
+        }
+    })
+})
+
 /////INDEX ROUTE////
 plantController.get('/', (req, res)=> {
     Plant.find({}, (error, allPlants)=> {
@@ -115,14 +129,14 @@ plantController.post('/', isAuthenticated, (req, res) => {
 ////UPDATE ROUTE////
 plantController.put('/:id/edit', isAuthenticated, (req, res)=> {
     Plant.findByIdAndUpdate(req.params.id, req.body, (error, foundPlant)=> {
-        res.redirect('/plants/')
+        res.redirect('/plants/myplants')
     })
 })
 
 ////DELETE ROUTE////
 plantController.delete('/:id', isAuthenticated, (req, res)=> {
     Plant.findByIdAndDelete(req.params.id, (error, foundPlant)=> {
-        res.redirect('/plants/')
+        res.redirect('/plants/myplants')
     })
 })
 

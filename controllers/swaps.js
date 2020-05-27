@@ -14,7 +14,7 @@ const isAuthenticated = (req, res, next)=> {
 }
 
 /////Swap Index Route/////
-swaps.get('/', (req, res)=> {
+swaps.get('/', isAuthenticated, (req, res)=> {
     Swap.find({}, (error, allSwaps) => {
         if(error){
             show(error)

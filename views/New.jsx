@@ -22,7 +22,7 @@ class New extends Component {
                     <option value="other">other</option>
                 </select><br/>
                 <input type="submit" value="Add Item" class="btn"/>
-                <a href="/plants" class="btn">Nevermind</a>
+                <a href="/plants/myplants" class="btn">Nevermind</a>
             </form>
                 </div>
             </Layout>

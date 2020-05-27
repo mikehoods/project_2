@@ -35,8 +35,9 @@ class MessageIndex extends React.Component {
                     <h1>{this.props.username}'s Messages</h1>
                 </header>
                     <nav id="msg-nav">
+                        <a href="/plants/" class="btn">Find Plants</a>
                         <a href="/swaps" class="btn">My Swaps</a>
-                        <a href="/plants" class="btn">Check Out Plants</a>
+                        <a href="/plants/myplants" class="btn">My Plants</a>
                         <form action="/sessions/?_method=delete" method="post">
                             <input type="submit" value="Logout" class="btn"/>
                         </form>
@@ -59,7 +60,7 @@ class MessageIndex extends React.Component {
                                     </h2>
                                     <h2>Title: {message.title}</h2>
                                     <p>{message.msg}</p>
-                                    <div class="deleteDiv">
+                                    <div class="msg-btnDiv">
                                         <form action={`/messages/new`} method="GET">
                                             <input type="hidden" name="to" value={message.from}/>
                                             <input type="submit" value="Reply" class="btn"/>
@@ -86,7 +87,7 @@ class MessageIndex extends React.Component {
                                     </h2>
                                     <h2>Title: {message.title}</h2>
                                     <p>{message.msg}</p>
-                                    <div class="deleteDiv">
+                                    <div class="msg-btnDiv">
                                         <form action={`/messages/${message._id}?_method=DELETE`} method="POST">
                                             <input type="submit" value="Delete" class="btn"/>
                                         </form>

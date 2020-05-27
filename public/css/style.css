@@ -80,6 +80,9 @@ img {
     border-radius: 26px;
     padding: .3rem;
 }
+.approvedSwap-div:hover {
+    background-color: wheat;
+}
 .approvedSwaps-btn {
     background-color: rgb(126, 182, 91);
 }
@@ -146,7 +149,7 @@ ion-icon {
 .msg {
     text-align: left;
     border: 1px solid black;
-    margin: .5rem;
+    margin: .5rem 1rem;
     padding: .5rem;
     border-radius: 16px;
 }
@@ -165,9 +168,9 @@ input {
     display: flex;
     justify-content: flex-end;
 }
-.deleteDiv {
+.msg-btnDiv {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 .showSwap-header {
     display: flex;
