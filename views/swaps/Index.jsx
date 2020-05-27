@@ -147,7 +147,7 @@ class SwapIndex extends React.Component {
                                         Qty: {swap.qty1}
                                     </div>
                                     <div>
-                                    <ion-icon name="swap-horizontal-sharp"></ion-icon>
+                                        <ion-icon name="swap-horizontal-sharp"></ion-icon>
                                     </div>
                                     <div>
                                         <h3>You Want</h3>
@@ -164,5 +164,4 @@ class SwapIndex extends React.Component {
         )
     }
 }
-
 module.exports = SwapIndex
