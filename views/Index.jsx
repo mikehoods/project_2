@@ -83,6 +83,7 @@ class Index extends Component {
                     </nav>
                     <div class="plants-container">
                         <h3>Swap Cuttings</h3>
+                        <div class="plants-row">
                     {cuttingPlants.map((plant, i) => {
                         return (
                             <div key={i} class="plants-card">
@@ -91,10 +92,12 @@ class Index extends Component {
                                 <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
                             </div>
                         )
-                    })}    
+                    })}
+                        </div>
                     </div>
                     <div class="plants-container">
                         <h3>Swap Starts</h3>
+                        <div class="plants-row">
                     {startPlants.map((plant, i) => {
                         return (
                             <div key={i} class="plants-card">
@@ -104,9 +107,11 @@ class Index extends Component {
                             </div>
                         )
                     })}    
+                        </div>
                     </div>
                     <div class="plants-container">
                         <h3>Swap Seeds</h3>
+                        <div class="plants-row">
                     {seedPlants.map((plant, i) => {
                         return (
                             <div key={i} class="plants-card">
@@ -116,6 +121,7 @@ class Index extends Component {
                             </div>
                         )
                     })}    
+                        </div>
                     </div>
                     <div class="plants-container">
                         <h3>Swap Produce</h3>
@@ -133,6 +139,7 @@ class Index extends Component {
                     </div>
                     <div class="plants-container">
                         <h3>Swap Other Stuff</h3>
+                        <div class="plants-row">
                     {otherPlants.map((plant, i) => {
                         return (
                             <div key={i} class="plants-card">
@@ -141,7 +148,8 @@ class Index extends Component {
                                 <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
                             </div>
                         )
-                    })}    
+                    })}   
+                        </div> 
                     </div>    
                 </div>
             </Layout>
