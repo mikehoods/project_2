@@ -39,8 +39,8 @@ class Show extends Component {
         return (
             <Layout>
                 <div>
-                    <h1>{itemname}</h1>
-                    <img src={img || "/images/nophoto.jpg"}/>
+                    <h1 id="plantsShow-name">{itemname}</h1>
+                    <img src={img || "/images/nophoto.jpg"} id="plantsShow-img"/>
                     <p>{description}</p>
                     <h2>Qty: {inStock}</h2>
                     <div>

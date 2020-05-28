@@ -60,6 +60,17 @@ img {
     max-width: 50%;
     border-radius: 16px;
 }
+#plantsShow-img {
+    max-width: 40vw;
+    margin-top: 1rem;
+}
+#plantsShow-name {
+    color: whitesmoke;
+    background-color: teal;
+    padding: .5rem;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
 #yourRequests, #theirRequests, #approvedSwaps {
     color: whitesmoke;
     padding: .2rem;

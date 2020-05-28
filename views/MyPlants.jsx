@@ -42,7 +42,7 @@ class MyPlants extends Component {
                             <div key={i} class="plants-card">
                                 <h2>{plant.itemname}</h2>
                                 <a href={`/plants/${plant._id}`}><img src={plant.img || "/images/nophoto.jpg"} alt={plant.itemname}/></a>
-                                <h2>Type: {plant.plantType} | Qty: {inStock(plant)}</h2>
+                                <h4>Type: {plant.plantType} | Qty: {inStock(plant)}</h4>
                                 <p>{plant.description}</p>
                                 <div class="show-btns">
                 <form action={`/plants/${plant._id}/edit`} method="GET">
