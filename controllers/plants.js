@@ -39,7 +39,7 @@ plantController.get('/seed', (req, res)=> {
             description: "Strange, yet beautiful.",
             img: "https://imgur.com/WqgBYco.jpg",
             qty: 14,
-            plantType: "seeds",
+            plantType: "seed",
             owner: "Mike"
         },
         {

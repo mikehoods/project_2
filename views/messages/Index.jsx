@@ -35,6 +35,7 @@ class MessageIndex extends React.Component {
                     <h1>{this.props.username}'s Messages</h1>
                 </header>
                     <nav id="msg-nav">
+                        <a href="/messages/new" class="btn">New Message</a>
                         <a href="/plants/" class="btn">Find Plants</a>
                         <a href="/swaps" class="btn">My Swaps</a>
                         <a href="/plants/myplants" class="btn">My Plants</a>
