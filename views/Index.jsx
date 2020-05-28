@@ -7,7 +7,7 @@ class Index extends Component {
         ////Display nav options for logged in user////
         const loggedIn = (
             <div class="navDiv">
-                <h2>Hey there {this.props.username}</h2>
+                <h2>Hey there, {this.props.username}</h2>
                 <a href="/swaps" class="btn">My Swaps</a>
                 <a href="/messages" class="btn">Messages</a>
                 <a href="/plants/myplants" class="btn">My Plants</a>
